@@ -1,0 +1,14 @@
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\bin\Debug\net10.0\HerenciaVsComposicion.exe
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\bin\Debug\net10.0\HerenciaVsComposicion.deps.json
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\bin\Debug\net10.0\HerenciaVsComposicion.runtimeconfig.json
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\bin\Debug\net10.0\HerenciaVsComposicion.dll
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\bin\Debug\net10.0\HerenciaVsComposicion.pdb
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.AssemblyInfoInputs.cache
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.AssemblyInfo.cs
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.csproj.CoreCompileInputs.cache
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.dll
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\refint\HerenciaVsComposicion.dll
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.pdb
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\HerenciaVsComposicion.genruntimeconfig.cache
+C:\Users\antoi\RiderProjects\HerenciaVsComposicion\HerenciaVsComposicion\obj\Debug\net10.0\ref\HerenciaVsComposicion.dll
