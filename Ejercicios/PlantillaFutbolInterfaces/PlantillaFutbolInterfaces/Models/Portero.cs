@@ -1,8 +1,8 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class Portero : Entrenador, IPortero {
-    public override void Entrenar() {
-        Console.WriteLine("Entrenando como portero");
+public sealed class Portero : Jugador, IPortero {
+    public override void Jugar() {
+        Console.WriteLine("Jugando el partido como portero");
     }
 
     public void Blocar() {

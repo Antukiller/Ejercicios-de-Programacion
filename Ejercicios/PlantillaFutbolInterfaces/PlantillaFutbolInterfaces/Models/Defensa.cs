@@ -1,8 +1,8 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class Defensa : Entrenador, IDefensa {
-    public override void Entrenar() {
-        Console.WriteLine("Entrenando como defensa");
+public sealed class Defensa : Jugador, IDefensa {
+    public override void Jugar() {
+        Console.WriteLine("jugando el partido como defensa");
     }
 
     public void Defender() {

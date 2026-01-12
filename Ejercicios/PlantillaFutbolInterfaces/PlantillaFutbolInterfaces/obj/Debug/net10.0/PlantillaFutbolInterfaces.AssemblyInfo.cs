@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlantillaFutbolInterfaces")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd6299256c4522004b4c07588d7c4d98bb25febc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b08788b5ee0cfbb0014f3e8850201ab84435e6d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlantillaFutbolInterfaces")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlantillaFutbolInterfaces")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
