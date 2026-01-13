@@ -1,5 +1,7 @@
-﻿namespace PlantillaFutbolInterfaces;
+﻿using PlantillaFutbolInterfaces.Models;
 
-public interface IPortero {
+namespace PlantillaFutbolInterfaces;
+
+public interface IPortero : IJugador {
     public void Blocar();
 }

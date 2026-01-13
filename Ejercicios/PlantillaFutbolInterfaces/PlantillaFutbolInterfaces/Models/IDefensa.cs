@@ -1,5 +1,5 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public interface IDefensa {
+public interface IDefensa : IJugador {
     public void Defender();
 }

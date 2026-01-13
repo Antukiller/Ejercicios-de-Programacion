@@ -1,10 +1,8 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public class Entrenador : Persona {
-    public required int Experiencia { get; set; }
-    
-    public virtual void Entrenar() {
-        Console.WriteLine("Entrenado al primer equipo y ajustando la tactica");
-    }
-    
+public class Entrenador(string NombreCompleto, IRol rol, int experiencia) : Persona(NombreCompleto, rol) {
+    public required int Experiencia { get; set; } = experiencia;
+
+    public virtual void AjustarTactica() => Console.WriteLine("El entrenador ajusta la tactica");
+
 }

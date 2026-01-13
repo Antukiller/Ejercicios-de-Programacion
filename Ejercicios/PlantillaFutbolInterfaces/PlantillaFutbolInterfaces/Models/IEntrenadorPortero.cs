@@ -1,5 +1,5 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public interface IEntrenadorPortero {
+public interface IEntrenadorPortero : IEntrenador {
     public void Atajar();
 }

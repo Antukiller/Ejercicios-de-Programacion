@@ -1,16 +1,15 @@
 ﻿namespace PlantillaFutbolComposicion.Models;
 
-public class Jugador : Persona {
+public class Jugador : Persona, IEntrenamiento {
     public int Dorsal { get; set; }
+    
+    
 
-    private IEntrenamiento entrenamiento;
-
-    public Jugador(IEntrenamiento entrenamiento) {
-        this.entrenamiento = entrenamiento;
-    }
-
-    public void Ensayar() => entrenamiento.Entrenar();
+    public void Ensayar() => Entrenar();
 
     public virtual void Jugar() => Console.WriteLine("El jugador se prepara para el partido");
 
+    public void Entrenar() {
+        throw new NotImplementedException();
+    }
 }

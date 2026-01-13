@@ -1,5 +1,5 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public interface IEntrenadorSecundario {
+public interface IEntrenadorSecundario : IEntrenador {
     public void Gestionar();
 }

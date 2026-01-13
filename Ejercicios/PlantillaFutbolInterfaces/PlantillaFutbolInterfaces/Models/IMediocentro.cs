@@ -1,5 +1,5 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public interface IMediocentro {
+public interface IMediocentro : IJugador {
     public void Distribuir();
 }

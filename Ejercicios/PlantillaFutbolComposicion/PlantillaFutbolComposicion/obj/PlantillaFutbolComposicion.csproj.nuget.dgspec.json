@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj": {}
+    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj": {
+    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj",
+        "projectUniqueName": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj",
         "projectName": "PlantillaFutbolComposicion",
-        "projectPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj",
+        "projectPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion.csproj",
         "packagesPath": "C:\\Users\\Antukiller\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\obj\\",
+        "outputPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\PlantillaFutbolComposicion\\PlantillaFutbolComposicion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Antukiller\\AppData\\Roaming\\NuGet\\NuGet.Config"

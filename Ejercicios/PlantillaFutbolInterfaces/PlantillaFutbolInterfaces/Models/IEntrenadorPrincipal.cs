@@ -1,5 +1,5 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public interface IEntrenadorPrincipal {
-    public void AjustarTactica();
+public interface IEntrenadorPrincipal : IEntrenador {
+    public void Dirigir();
 }
