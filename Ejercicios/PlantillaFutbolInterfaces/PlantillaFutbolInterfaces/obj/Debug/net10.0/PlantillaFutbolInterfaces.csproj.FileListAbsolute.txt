@@ -1,0 +1,15 @@
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\bin\Debug\net10.0\PlantillaFutbolInterfaces.exe
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\bin\Debug\net10.0\PlantillaFutbolInterfaces.deps.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\bin\Debug\net10.0\PlantillaFutbolInterfaces.runtimeconfig.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\bin\Debug\net10.0\PlantillaFutbolInterfaces.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\bin\Debug\net10.0\PlantillaFutbolInterfaces.pdb
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.AssemblyInfoInputs.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.AssemblyInfo.cs
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.sourcelink.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\refint\PlantillaFutbolInterfaces.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.pdb
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\PlantillaFutbolInterfaces.genruntimeconfig.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\PlantillaFutbolInterfaces\PlantillaFutbolInterfaces\obj\Debug\net10.0\ref\PlantillaFutbolInterfaces.dll

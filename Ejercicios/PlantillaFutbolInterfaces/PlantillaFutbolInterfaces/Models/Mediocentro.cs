@@ -1,6 +1,6 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class Mediocentro : Jugador, IMediocenttro {
+public sealed class Mediocentro : Jugador, IMediocentro {
     public override void Jugar() {
         Console.WriteLine("jugando el partido como mediocentro");
     }
