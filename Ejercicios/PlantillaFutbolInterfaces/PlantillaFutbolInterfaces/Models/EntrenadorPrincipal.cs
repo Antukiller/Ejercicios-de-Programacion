@@ -1,19 +1,14 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class EntrenadorPrincipal(string NombreCompleto, IRol rol, int experiencia) : Entrenador(NombreCompleto, rol, experiencia), IEntrenadorPrincipal {
-    public override void AjustarTactica() {
-        Console.WriteLine("El entrenador principal modifica el la formacion");
-    }
+public sealed class EntrenadorPrincipal(string NombreCompleto) : Entrenador(NombreCompleto, new RolEntrenadorPrincipal()) {
+
+    public IEntrenadorPrincipal Role => (IEntrenadorPrincipal)Rol;
 
     public void Entrenar() {
-        throw new NotImplementedException();
+        ((IEntrenadorPrincipal)Rol).Entrenar();
     }
-
-    public void Adiestrar() {
-        throw new NotImplementedException();
-    }
-
-    public void Dirigir() {
-        throw new NotImplementedException();
+    
+    public override void CambiarRol(IEntrenador nuevoRol) {
+        base.CambiarRol(nuevoRol);
     }
 }

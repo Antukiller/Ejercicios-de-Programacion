@@ -1,5 +1,5 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public interface IDelantero {
+public interface IDelantero : IJugador {
     public void Chutar();
 }

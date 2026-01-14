@@ -1,15 +1,15 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class Defensa(string NombreCompleto, IRol rol, int dorsal) : Jugador(NombreCompleto, rol, dorsal), IDefensa {
-    public void Entrenar() {
-        throw new NotImplementedException();
-    }
+public sealed class Defensa(string NombreCompleto, int Dorsal) : Jugador(NombreCompleto, new RolDefensa(Dorsal)) {
 
-    public void Jugar() {
-        throw new NotImplementedException();
-    }
+    public IDefensa Role => (IDefensa)Rol;
 
     public void Defender() {
-        throw new NotImplementedException();
+        ((IDefensa)Rol).Defender();
     }
+    public override void CambiarRol(IJugador nuevoRol) {
+        base.CambiarRol(nuevoRol);
+    }
+    
+    
 }

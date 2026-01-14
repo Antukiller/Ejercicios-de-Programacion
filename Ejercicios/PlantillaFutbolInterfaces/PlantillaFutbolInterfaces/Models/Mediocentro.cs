@@ -1,11 +1,14 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class Mediocentro : Jugador, IMediocentro {
-    public override void Jugar() {
-        Console.WriteLine("jugando el partido como mediocentro");
-    }
+public sealed class Mediocentro(string NombreCompleto, int Dorsal) : Jugador(NombreCompleto, new RolMediocentro(Dorsal) ) {
+
+    public IMediocentro Role => (IMediocentro)Rol;
 
     public void Distribuir() {
-        Console.WriteLine("Distribuyendo el juego como mediocentro");
+        ((IMediocentro)Rol).Distribuir();
+    }
+
+    public override void CambiarRol(IJugador nuevoRol) {
+        base.CambiarRol(nuevoRol);
     }
 }

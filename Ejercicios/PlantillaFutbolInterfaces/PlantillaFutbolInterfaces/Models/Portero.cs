@@ -1,20 +1,15 @@
 ﻿namespace PlantillaFutbolInterfaces.Models;
 
-public sealed class Portero(string NombreCompleto, IRol rol, int dorsal) : Jugador(NombreCompleto, rol, dorsal), IPortero {
-    public override void Convocado() {
-        Console.WriteLine("El portero ha sido convocado");
-    }
+public sealed class Portero(string NombreCompleto, int dorsal) : Jugador(NombreCompleto, new RolPortero(dorsal)) {
     
+    
+    public IPortero Role => (IPortero)Rol;
 
     public void Blocar() {
-        Console.WriteLine("Blocando como portero");
+        ((IPortero)Rol).Blocar();
     }
 
-    public void Entrenar() {
-        throw new NotImplementedException();
-    }
-
-    public void Jugar() {
-        throw new NotImplementedException();
+    public override void CambiarRol(IJugador nuevoRol) {
+        base.CambiarRol(nuevoRol);
     }
 }
