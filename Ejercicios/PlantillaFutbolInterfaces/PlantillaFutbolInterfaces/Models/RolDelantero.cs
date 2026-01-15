@@ -16,4 +16,8 @@ public class RolDelantero(int Dorsal) : IDelantero {
     public void Chutar() {
         Console.WriteLine("El delantero chuta el tornado de fuego");
     }
+
+    public override string ToString() {
+        return $"soy un delantero con dorsal : {Dorsal}";
+    }
 }

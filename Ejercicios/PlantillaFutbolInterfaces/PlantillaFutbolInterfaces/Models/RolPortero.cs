@@ -15,4 +15,8 @@ public class RolPortero(int Dorsal = 1) : IPortero {
     public void Jugar() {
         Console.WriteLine("Juega el partido como portero");
     }
+
+    public override string ToString() {
+        return $"soy un portero con dorsal : {Dorsal}";
+    }
 }

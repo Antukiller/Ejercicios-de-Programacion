@@ -12,4 +12,5 @@ public sealed class Portero(string NombreCompleto, int dorsal) : Jugador(NombreC
     public override void CambiarRol(IJugador nuevoRol) {
         base.CambiarRol(nuevoRol);
     }
+    
 }

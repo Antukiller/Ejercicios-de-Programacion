@@ -2,7 +2,7 @@
 
 namespace PlantillaFutbolInterfaces;
 
-public class Jugador(string NombreCompleto, IJugador rol) : Persona(NombreCompleto, rol) {
+public class Jugador(string NombreCompleto, IJugador role) : Persona(NombreCompleto, role) {
 
 
     public virtual void Convocado() {
