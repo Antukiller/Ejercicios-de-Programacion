@@ -1,0 +1,15 @@
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\bin\Debug\net10.0\The Witcher 3.exe
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\bin\Debug\net10.0\The Witcher 3.deps.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\bin\Debug\net10.0\The Witcher 3.runtimeconfig.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\bin\Debug\net10.0\The Witcher 3.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\bin\Debug\net10.0\The Witcher 3.pdb
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.AssemblyInfoInputs.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.AssemblyInfo.cs
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.csproj.CoreCompileInputs.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.sourcelink.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\refint\The Witcher 3.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.pdb
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\The Witcher 3.genruntimeconfig.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\The Witcher 3\The Witcher 3\obj\Debug\net10.0\ref\The Witcher 3.dll
