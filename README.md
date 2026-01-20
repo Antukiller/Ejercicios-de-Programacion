@@ -28,7 +28,7 @@ Actualmente, estoy trabajando en:
 
 ## 🛠️ Stack Tecnológico
 
-* **Lenguaje:** C# (.NET Core / .NET 8)
+* **Lenguaje:** C# (.NET Core / .NET 10)
 * **IDE:** JetBrains Rider / Visual Studio
 * **Control de Versiones:** Git & GitHub
 
@@ -39,7 +39,7 @@ Actualmente, estoy trabajando en:
 Para cuando trabaje desde otra máquina:
 
 1. **Sincronizar:** `git pull origin main`
-2. **Subir cambios:** ```bash
+2. **Subir cambios:**
    git add .
    git commit -m "feat: agrega nuevo ejercicio de [tema]"
    git push origin main
