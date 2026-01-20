@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("NarutoWorld")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("The Witcher 3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0878c5cf468a7be6742fb98fe56016176ab6983f")]
-[assembly: System.Reflection.AssemblyProductAttribute("NarutoWorld")]
-[assembly: System.Reflection.AssemblyTitleAttribute("NarutoWorld")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6805914e498124f90c6c7d3174499aa2aab4f9e")]
+[assembly: System.Reflection.AssemblyProductAttribute("The Witcher 3")]
+[assembly: System.Reflection.AssemblyTitleAttribute("The Witcher 3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.

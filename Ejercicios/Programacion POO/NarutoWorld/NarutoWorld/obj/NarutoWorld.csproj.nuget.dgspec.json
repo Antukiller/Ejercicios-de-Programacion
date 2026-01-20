@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj": {}
+    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj": {
+    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj",
+        "projectUniqueName": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj",
         "projectName": "NarutoWorld",
-        "projectPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj",
+        "projectPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\NarutoWorld\\NarutoWorld\\NarutoWorld.csproj",
         "packagesPath": "C:\\Users\\Antukiller\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\NarutoWorld\\NarutoWorld\\obj\\",
+        "outputPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\NarutoWorld\\NarutoWorld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Antukiller\\AppData\\Roaming\\NuGet\\NuGet.Config"

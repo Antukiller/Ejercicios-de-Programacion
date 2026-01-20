@@ -1,45 +1,81 @@
-# 💻 Mis Desafíos en C#
-> Repositorio central de ejercicios de programación, lógica y diseño de sistemas.
+💻 C# Software Engineering Lab 
 
-Este repositorio es mi espacio de trabajo personal donde desarrollo soluciones en **C#** enfocadas en arquitectura, patrones de diseño y lógica pura. El objetivo es mantener un código limpio y accesible desde cualquier lugar.
+Repositorio evolutivo de C#. Desde fundamentos de lógica hasta arquitectura de sistemas complejos y paradigmas avanzados. 
 
----
+ 
 
-## 🏗️ Categorías de Ejercicios
+🏗️ Mapa del Repositorio 
 
-| Categoría | Descripción | Conceptos Clave |
-| :--- | :--- | :--- |
-| **Gestión** | Sistemas de inventario, bibliotecas o empleados. | Herencia, Encapsulamiento, Listas. |
-| **Simulación** | Simuladores de partidos (Fútbol), tráfico o procesos. | Lógica de estados, Random, Bucles. |
-| **Interfaces** | Diseño de contratos y desacoplamiento. | Interfaces, Inyección de dependencias. |
-| **Lógica** | Algoritmos matemáticos y resolución de problemas. | Recursividad, Optimización. |
+He organizado este espacio para separar los conceptos teóricos de la implementación práctica: 
 
----
+🚀 1. Laboratorios de Conceptos (Micro-ejercicios) 
 
-## 📂 Organización del Repo
+Ubicados en /Ejercicios, aquí exploro temas específicos del lenguaje de forma aislada: 
 
-Actualmente, estoy trabajando en:
+Programación POO: Modelado de dominios (The Witcher, Naruto) para dominar herencia y polimorfismo. 
 
-* **`Ejercicios/PlantillaFutbolInterfaces/`**: ⚽ Un proyecto para practicar la abstracción de jugadores y equipos mediante interfaces.
-* **`Ejercicios/GestionHerencia/`**: 🏛️ Ejemplo de jerarquías de clases (ej. Empleados -> Gerentes).
-* **`Ejercicios/Simulacion/`**: 🎲 Lógica de eventos aleatorios y control de flujo.
+Programación Genéricos: Creación de componentes altamente reutilizables y tipos seguros. 
 
----
+Programación Funcional (Próximamente): Uso de LINQ avanzado, expresiones lambda, inmutabilidad y funciones de orden superior. 
 
-## 🛠️ Stack Tecnológico
+🏛️ 2. Proyectos de Gran Escala 
 
-* **Lenguaje:** C# (.NET Core / .NET 10)
-* **IDE:** JetBrains Rider / Visual Studio
-* **Control de Versiones:** Git & GitHub
+Ubicados directamente en la raíz o en carpetas dedicadas dentro de /Ejercicios. Son sistemas completos que integran múltiples paradigmas: 
 
----
+Enfoque en Clean Architecture o N-Layer Architecture. 
 
-## 🚀 Notas de Uso Rápido (Cheat Sheet)
+Implementación de patrones de diseño (Factory, Observer, Singleton). 
 
-Para cuando trabaje desde otra máquina:
+Gestión de dependencias y pruebas unitarias. 
 
-1. **Sincronizar:** `git pull origin main`
-2. **Subir cambios:**
-   git add .
-   git commit -m "feat: agrega nuevo ejercicio de [tema]"
-   git push origin main
+ 
+
+🛠️ Estándares de Ingeniería 
+
+Para asegurar que cada pieza de código (sea un ejercicio de 10 líneas o un proyecto de 1000) sea profesional, sigo estos principios: 
+
+🧼 Calidad de Código 
+
+DRY (Don't Repeat Yourself): Si el código se repite, se abstrae (uso de Genéricos). 
+
+KISS (Keep It Simple, Stupid): Priorizo la legibilidad sobre la complejidad innecesaria. 
+
+Documentación: Cada módulo o proyecto cuenta con su propio README.md técnico explicando su arquitectura específica. 
+
+⚙️ Flujo de Trabajo 
+
+Análisis: Definición del problema en el README local. 
+
+Modelado: Diseño de clases e interfaces. 
+
+Implementación: Desarrollo en JetBrains Rider. 
+
+Refactorización: Mejora continua aplicando principios SOLID. 
+
+ 
+
+🔍 Stack de Tecnologías 
+
+Tecnología 
+
+Ámbito 
+
+.NET 10 / C# 
+
+Desarrollo de Backend y Lógica de Negocio. 
+
+LINQ 
+
+Manipulación de datos con paradigma funcional. 
+
+Git / GitHub 
+
+Control de versiones y despliegue de código. 
+
+ 
+
+"Escribir código es fácil. Diseñar software es lo que marca la diferencia." 
+
+ 
+
+ 
