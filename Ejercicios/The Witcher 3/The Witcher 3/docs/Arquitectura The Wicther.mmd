@@ -1,0 +1,84 @@
+---
+config:
+  layout: elk
+  theme: neo-dark
+---
+classDiagram
+direction TB
+    class Persona {
+	    +String Nombre
+	    +Int Edad
+    }
+
+    class Brujo {
+        CambiarEstrategia()
+    }
+
+    class IRolCombate {
+	    RealizarAccion()
+    }
+
+    class IRolEstrategiaBrujo {
+	    +PrepararInventario()
+    }
+
+    class IEstiloEspada {
+	    +AsestarGolpe()
+    }
+
+    class IEstiloMagico {
+	    +LanzarSeñal()
+    }
+
+    class IAlquimista {
+	    +DestilarPocion()
+    }
+
+    class RolPlata {
+	    +RealizarAccion()
+	    +PrepararInventario()
+	    +AsestarGolpe()
+    }
+
+    class RolAcero {
+	    +RealizarAccion()
+	    +PrepararInventario()
+	    +AsestarGolpe()
+    }
+
+    class RolQuen {
+	    +RealizarAccion()
+	    +PrepararInventario()
+	    +LanzarSeñal()
+    }
+
+    class RolIgni {
+	    +RealizarAccion()
+	    +PrepararInventario()
+	    +LanzarSeñal()
+    }
+
+    class RolMaestroPociones {
+	    +RealizarAccion()
+	    +PrepararInventario()
+	    +DestilarPocion()
+    }
+
+	<<Abstract>> Persona
+	<<Interface>> IRolCombate
+	<<Interface>> IRolEstrategiaBrujo
+	<<Interface>> IEstiloEspada
+	<<Interface>> IEstiloMagico
+	<<Interface>> IAlquimista
+
+    Persona <|-- Brujo : hereda
+    IRolCombate <|.. IRolEstrategiaBrujo
+    IRolEstrategiaBrujo <|.. IEstiloEspada
+    IRolEstrategiaBrujo <|.. IEstiloMagico
+    IRolEstrategiaBrujo <|.. IAlquimista
+    RolPlata ..|> IEstiloEspada
+    RolAcero ..|> IEstiloEspada
+    RolQuen ..|> IEstiloMagico
+    RolIgni ..|> IEstiloMagico
+    RolMaestroPociones ..|> IAlquimista
+    Persona --> IRolEstrategiaBrujo : tiene
