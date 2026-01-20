@@ -1,81 +1,54 @@
-💻 C# Software Engineering Lab 
+# 💻 C# Software Engineering Lab
+> Repositorio evolutivo de **C#**. Desde fundamentos de lógica hasta arquitectura de sistemas complejos.
 
-Repositorio evolutivo de C#. Desde fundamentos de lógica hasta arquitectura de sistemas complejos y paradigmas avanzados. 
+---
 
- 
+## 🏗️ Mapa del Repositorio
 
-🏗️ Mapa del Repositorio 
+He organizado este espacio para separar los conceptos teóricos de la implementación práctica:
 
-He organizado este espacio para separar los conceptos teóricos de la implementación práctica: 
+### 🚀 1. Laboratorios de Conceptos (Micro-ejercicios)
+*Ubicados en `/Ejercicios`* - Enfoque en dominar características específicas del lenguaje.
+* **Programación POO:** Modelado de dominios (`The Witcher`, `NarutoWorld`) para dominar herencia y polimorfismo.
+* **Programación Genéricos:** Creación de componentes reutilizables y tipos seguros.
+* **Programación Funcional:** *(Próximamente)* Uso de LINQ, lambdas e inmutabilidad.
 
-🚀 1. Laboratorios de Conceptos (Micro-ejercicios) 
+### 🏛️ 2. Proyectos de Gran Escala
+*Sistemas completos que integran múltiples paradigmas y arquitecturas:*
+* **Clean Architecture:** Separación de capas y lógica de negocio.
+* **Design Patterns:** Implementación de Factory, Observer, Singleton, etc.
+* **Testing:** Pruebas unitarias para asegurar la integridad del código.
 
-Ubicados en /Ejercicios, aquí exploro temas específicos del lenguaje de forma aislada: 
+---
 
-Programación POO: Modelado de dominios (The Witcher, Naruto) para dominar herencia y polimorfismo. 
+## 🛠️ Estándares de Ingeniería
 
-Programación Genéricos: Creación de componentes altamente reutilizables y tipos seguros. 
+Para asegurar que cada pieza de código sea profesional, sigo estos principios:
 
-Programación Funcional (Próximamente): Uso de LINQ avanzado, expresiones lambda, inmutabilidad y funciones de orden superior. 
+> [!IMPORTANT]
+> **Calidad sobre cantidad:** Prefiero una solución elegante y escalable que una rápida y desordenada.
 
-🏛️ 2. Proyectos de Gran Escala 
+* **DRY (Don't Repeat Yourself):** Abstracción mediante Genéricos.
+* **KISS (Keep It Simple):** Código legible y fácil de mantener.
+* **Documentación:** Cada subcarpeta contiene su propio `README.md` técnico.
 
-Ubicados directamente en la raíz o en carpetas dedicadas dentro de /Ejercicios. Son sistemas completos que integran múltiples paradigmas: 
+---
 
-Enfoque en Clean Architecture o N-Layer Architecture. 
+## 🔍 Stack de Tecnologías
 
-Implementación de patrones de diseño (Factory, Observer, Singleton). 
+| Tecnología | Ámbito |
+| :--- | :--- |
+| **.NET 10 / C#** | Desarrollo de Backend y Lógica. |
+| **JetBrains Rider / VS Code** | IDEs de desarrollo principal. |
+| **LINQ** | Paradigma funcional para datos. |
+| **Git / GitHub** | Control de versiones. |
 
-Gestión de dependencias y pruebas unitarias. 
+---
 
- 
+## 📝 Convenciones de Código
+* **Clases/Métodos:** `PascalCase`
+* **Variables:** `camelCase`
+* **Commits:** `tipo: descripción` (ej. `feat: add generic repository`)
 
-🛠️ Estándares de Ingeniería 
-
-Para asegurar que cada pieza de código (sea un ejercicio de 10 líneas o un proyecto de 1000) sea profesional, sigo estos principios: 
-
-🧼 Calidad de Código 
-
-DRY (Don't Repeat Yourself): Si el código se repite, se abstrae (uso de Genéricos). 
-
-KISS (Keep It Simple, Stupid): Priorizo la legibilidad sobre la complejidad innecesaria. 
-
-Documentación: Cada módulo o proyecto cuenta con su propio README.md técnico explicando su arquitectura específica. 
-
-⚙️ Flujo de Trabajo 
-
-Análisis: Definición del problema en el README local. 
-
-Modelado: Diseño de clases e interfaces. 
-
-Implementación: Desarrollo en JetBrains Rider. 
-
-Refactorización: Mejora continua aplicando principios SOLID. 
-
- 
-
-🔍 Stack de Tecnologías 
-
-Tecnología 
-
-Ámbito 
-
-.NET 10 / C# 
-
-Desarrollo de Backend y Lógica de Negocio. 
-
-LINQ 
-
-Manipulación de datos con paradigma funcional. 
-
-Git / GitHub 
-
-Control de versiones y despliegue de código. 
-
- 
-
-"Escribir código es fácil. Diseñar software es lo que marca la diferencia." 
-
- 
-
- 
+---
+*"El software es un arte de manejar la complejidad."*
