@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj": {}
+    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj": {
+    "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj",
+        "projectUniqueName": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj",
         "projectName": "ListasEnlazadas",
-        "projectPath": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj",
-        "packagesPath": "C:\\Users\\antoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\obj\\",
+        "projectPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj",
+        "packagesPath": "C:\\Users\\Antukiller\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Antukiller\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\antoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Antukiller\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
