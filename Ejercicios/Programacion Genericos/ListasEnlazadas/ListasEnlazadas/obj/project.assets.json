@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion POO\\The Witcher 3\\The Witcher 3\\The Witcher 3.csproj",
-      "projectName": "The Witcher 3",
-      "projectPath": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion POO\\The Witcher 3\\The Witcher 3\\The Witcher 3.csproj",
+      "projectUniqueName": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj",
+      "projectName": "ListasEnlazadas",
+      "projectPath": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\ListasEnlazadas.csproj",
       "packagesPath": "C:\\Users\\antoi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion POO\\The Witcher 3\\The Witcher 3\\obj\\",
+      "outputPath": "C:\\Users\\antoi\\RiderProjects\\Ejercicios-de-Programacion\\Ejercicios\\Programacion Genericos\\ListasEnlazadas\\ListasEnlazadas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\antoi\\AppData\\Roaming\\NuGet\\NuGet.Config"

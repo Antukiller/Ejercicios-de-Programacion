@@ -4,64 +4,15 @@
     <projectFile>ListasEnlazadas/ListasEnlazadas.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e8ce5cf-6966-4d86-b5f0-83b20c29b544" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Lista/ILista.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Lista/Lista.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Nodo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CajasGenericas/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CajasGenericas/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CajasGenericas/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CajasGenericas/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CajasGenericas/.idea/material_theme_project_new.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CajasGenericas/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ListasEnlazadas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ListasEnlazadas/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas.slnx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaDoubles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaEntero.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaGenerica.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaGenericaMultiple.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaObject.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaPersona.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/CajaStrings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Caja/Persona.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/CajasGenericas.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/bin/Debug/net10.0/CajasGenericas.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/bin/Debug/net10.0/CajasGenericas.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/bin/Debug/net10.0/CajasGenericas.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/bin/Debug/net10.0/CajasGenericas.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/bin/Debug/net10.0/CajasGenericas.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/CajasGenericas.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/CajasGenericas.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/CajasGenericas.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/CajasGenericas.sourcelink.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/ListasEnlazadas.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/ListasEnlazadas.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/ListasEnlazadas.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/ListasEnlazadas.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/ListasEnlazadas.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/ref/CajasGenericas.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/Debug/net10.0/refint/CajasGenericas.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/ListasEnlazadas.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/ListasEnlazadas.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/ListasEnlazadas.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/rider.project.model.nuget.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CajasGenericas/obj/rider.project.restore.info" beforeDir="false" />
+    <list default="true" id="5541b064-d154-48ae-96c5-f0eb921f54ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaDoubles.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaEntero.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaGenerica.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaGenericaMultiple.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaPersona.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/CajaStrings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListasEnlazadas/Caja/Persona.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Programacion POO/The Witcher 3/.idea/.idea.The Witcher 3/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion POO/The Witcher 3/.idea/.idea.The Witcher 3/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Programacion POO/The Witcher 3/The Witcher 3/obj/Debug/net10.0/The Witcher 3.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion POO/The Witcher 3/The Witcher 3/obj/Debug/net10.0/The Witcher 3.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Programacion POO/The Witcher 3/The Witcher 3/obj/Debug/net10.0/The Witcher 3.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion POO/The Witcher 3/The Witcher 3/obj/Debug/net10.0/The Witcher 3.AssemblyInfoInputs.cache" afterDir="false" />
@@ -84,13 +35,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Lista/Lista.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Nodo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/CajaDoubles.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/CajaEntero.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/CajaGenerica.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/CajaGenericaMultiple.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/CajaObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/CajaPersona.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ListasEnlazadas/Caja/Persona.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
+  "associatedIndex": 7
 }]]></component>
-  <component name="ProjectId" id="38Z1ncT0jsy6OGRAR4M0fAqesLT" />
+  <component name="ProjectId" id="38YpjUJoP6BVDXMizkzjXoPcbNt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -131,12 +87,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6e8ce5cf-6966-4d86-b5f0-83b20c29b544" name="Changes" comment="" />
-      <created>1768992449111</created>
+      <changelist id="5541b064-d154-48ae-96c5-f0eb921f54ef" name="Changes" comment="" />
+      <created>1768986494267</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1768992449111</updated>
-      <workItem from="1768992451935" duration="4259000" />
+      <updated>1768986494267</updated>
+      <workItem from="1768986495367" duration="3020000" />
     </task>
     <servers />
   </component>

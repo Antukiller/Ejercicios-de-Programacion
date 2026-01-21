@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("The Witcher 3")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ListasEnlazadas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+492629f526531c53099ce06d7eb7985305b8bb9f")]
-[assembly: System.Reflection.AssemblyProductAttribute("The Witcher 3")]
-[assembly: System.Reflection.AssemblyTitleAttribute("The Witcher 3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+263967e7335842662180b60ab2b3a2722ee08994")]
+[assembly: System.Reflection.AssemblyProductAttribute("ListasEnlazadas")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ListasEnlazadas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
