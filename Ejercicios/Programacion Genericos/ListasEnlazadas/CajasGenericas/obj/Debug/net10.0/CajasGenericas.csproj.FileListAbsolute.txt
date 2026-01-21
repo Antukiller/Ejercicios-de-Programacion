@@ -1,0 +1,15 @@
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.AssemblyInfoInputs.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.AssemblyInfo.cs
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.csproj.CoreCompileInputs.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.sourcelink.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\bin\Debug\net10.0\CajasGenericas.exe
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\bin\Debug\net10.0\CajasGenericas.deps.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\bin\Debug\net10.0\CajasGenericas.runtimeconfig.json
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\bin\Debug\net10.0\CajasGenericas.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\bin\Debug\net10.0\CajasGenericas.pdb
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\refint\CajasGenericas.dll
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.pdb
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\CajasGenericas.genruntimeconfig.cache
+C:\Users\antoi\RiderProjects\Ejercicios-de-Programacion\Ejercicios\Programacion Genericos\ListasEnlazadas\CajasGenericas\obj\Debug\net10.0\ref\CajasGenericas.dll
