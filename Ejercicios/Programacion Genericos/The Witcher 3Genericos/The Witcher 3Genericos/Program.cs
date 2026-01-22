@@ -6,13 +6,20 @@ Console.WriteLine("Hola Continente");
 
 Console.WriteLine("--- ACTO 1: EL BRUJO GENÉRICO ---");
 
-Brujo<RolIgni> geralt = new Brujo<RolIgni>("Geralt de Rivia", new RolIgni());
+Brujo<IEstiloMagico> geralt = new Brujo<IEstiloMagico>("Geralt de Rivia", new RolIgni());
+geralt.Estrategia.PrepararInventario(geralt.Nombre);
+geralt.Estrategia.LanzarSeñal(geralt.Nombre); // Usa Igni
+
+// 2. CAMBIO DE ROL: Cambiamos a Quen
+geralt.CambiarEstrategia(new RolQuen());
 geralt.Estrategia.PrepararInventario(geralt.Nombre);
 geralt.Estrategia.LanzarSeñal(geralt.Nombre);
+
 
 Brujo<RolAcero> ciri = new Brujo<RolAcero>("Cirilla", new RolAcero());
 ciri.Estrategia.PrepararInventario(ciri.Nombre);
 ciri.Estrategia.AsestarGolpe(ciri.Nombre);
+
 
 
 Console.WriteLine("\n--- ACTO 2: COVARIANZA (SALIDA) ---");

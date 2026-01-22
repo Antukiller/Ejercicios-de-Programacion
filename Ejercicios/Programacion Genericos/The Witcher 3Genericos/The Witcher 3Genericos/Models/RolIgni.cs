@@ -1,6 +1,8 @@
 ﻿namespace The_Witcher_3Genericos.Models;
 
 public class RolIgni : IEstiloMagico {
-    public void PrepararInventario(string nombre) => Console.WriteLine($"[Magia]{nombre} se prepara para lanzar la señal Igni con sus guantes de pirómano...");
-    public void LanzarSeñal(string nombre) => Console.WriteLine($"[Magia]{nombre} lanza ¡IGNI! Una llamarada sale de sus manos.");
+    public void PrepararInventario(string nombre) => Console.WriteLine($"[CONJURO] {nombre} ajusta sus guantes de pirómano; el aire comienza a vibrar por el calor.");
+    
+    public void LanzarSeñal(string nombre) => Console.WriteLine($"[MAGIA] {nombre} lanza ¡IGNI! Una ráfaga de fuego abrasador incinera todo a su paso.");
+    
 }
