@@ -145,34 +145,95 @@ public class Lista<T> : ILista<T> {
     }
 
     public T ObtenerPrimero() {
-        throw new NotImplementedException();
+        // Verificamos si la cabeza esta vacia
+        if (_cabeza == null)
+            throw new InvalidOperationException("La lista está vacía");
+        
+        // Ahora actual apunta al primer nodo y lo devolvemos
+        return _cabeza.Valor;
     }
+    
 
     public T ObtenerUltimo() {
-        throw new NotImplementedException();
+        // Verificamps si la lista está vacía
+        if (_cabeza == null)
+            throw new InvalidOperationException("La lista está vacía");
+        var actual = _cabeza;
+        // con un bucle while 
+        // while (actual.Siguiente != null)
+        //      actual = actual.Siguiente;
+
+        for (var i = 0; i < _contador - 1; i++)
+            actual = actual?.Siguiente;
+        
+        // Ahora actual apunta al ultimo nodo y lo devolvemos
+        return actual!.Valor;
     }
 
     public T Obtener(int indice) {
-        throw new NotImplementedException();
+        // Validar el indice
+        if (indice < 0 || indice >= _contador)
+            throw new ArgumentOutOfRangeException(nameof(indice), "Indice fuera de rango");
+        var actual = _cabeza;
+        
+        // Con un bucle while
+        // while (actual != null && i < indice)
+        //    actual = actual.Siguiente;
+        
+        // Con un bucle for
+        for (var i = 0; i < indice; i++)
+            actual = actual?.Siguiente;
+        
+        // Ahora actual apunta al nodo el indice deseado y lo devolvemos
+        return actual!.Valor;
     }
 
     public bool Existe(T valor) {
-        throw new NotImplementedException();
+        var actual = _cabeza;
+        // Recorremos la lista buscando el valor 
+        while (actual != null ) {
+            if (actual.Valor!.Equals(valor))
+                return true;
+            actual = actual.Siguiente;
+        }
+
+        return false;
     }
 
     public int Contar() {
-        throw new NotImplementedException();
+        return _contador;
     }
 
     public bool EstaVacia(int indice) {
-        throw new NotImplementedException();
+        return _contador == 0;
     }
 
     public void Limpiar() {
-        throw new NotImplementedException();
+        _contador = 0;
+        _cabeza = null;
     }
 
     public void Mostrar() {
-        throw new NotImplementedException();
+        var actual = _cabeza;
+        // Recorremos la lista mostrando los valores
+        while (actual != null) {
+            Console.Write(actual.Valor);
+            if (actual.Siguiente != null)
+                Console.Write(" -> ");
+            actual = actual.Siguiente;
+        }
+        Console.WriteLine();
+    }
+    
+    // Esto lo veremos más adelante, pero es necesario para usar foreach
+    public IEnumerable<T> GetEnumerator() {
+        // Recorremos la lista devolviendo los valores
+        var actual = _cabeza;
+        while (actual != null) {
+            // Yield devuelve un valor y pausa la ejecución, para que el ciclo foreach pueda continuar
+            yield return actual.Valor;
+            // Avanzamos al siguiente nodo
+            actual = actual.Siguiente;
+        }
     }
 }
