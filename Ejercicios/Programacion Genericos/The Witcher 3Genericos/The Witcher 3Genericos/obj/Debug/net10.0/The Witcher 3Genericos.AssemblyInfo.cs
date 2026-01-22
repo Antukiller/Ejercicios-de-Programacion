@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("The Witcher 3Genericos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54cd8261bbd8815ac402b6cd0a2e6c44d28f7654")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b436e971f1bbf37e2a8ff63cc319591ae88958f")]
 [assembly: System.Reflection.AssemblyProductAttribute("The Witcher 3Genericos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("The Witcher 3Genericos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
