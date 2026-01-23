@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-// --- ACTO 1: ESPECIALISTAS ---
+
 
 using Solo_Leveling;
+
+// --- ACTO 1: ESPECIALISTAS ---
 
 var chaHaeIn = new Cazador<RolAsesino>("Cha Hae-In", new RolAsesino());
 chaHaeIn.Estilo.PrepararInventario(chaHaeIn.Nombre);
