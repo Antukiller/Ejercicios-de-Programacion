@@ -5,9 +5,9 @@ namespace One_Piece_World.Service;
 public interface IServiceOnePiece {
     // 1. Listados (Opciones 1, 2, 3, 4)
     ILista<Entidad> ObtenerTodo();
-    ILista<Pirata> ObtenerPiratas();        // Aquí el servicio hará el filtrado y casting
-    ILista<Marine> ObtenerMarines();        // Aquí también
-    ILista<FrutaDelDiablo> ObtenerFrutas(); // Y aquí
+    ILista<Entidad> ObtenerPiratas();        // Aquí el servicio hará el filtrado y casting
+    ILista<Entidad> ObtenerMarines();        // Aquí también
+    ILista<Entidad> ObtenerFrutas(); // Y aquí
 
     // 2. Búsqueda (Opción 5)
     Entidad? BuscarPorId(int id);

@@ -17,38 +17,33 @@ public class ServiceOnePiece(
 
     public ILista<Entidad> ObtenerTodo() => repositorio.GetAll();
 
-    public ILista<Pirata> ObtenerPiratas() {
-        _log.Debug("Obteniendo a todo los piratas");
-        var piratas = new Lista<Pirata>();
+    // Cambia ILista<Pirata> por ILista<Entidad>
+    public ILista<Entidad> ObtenerPiratas() {
+        var piratas = new Lista<Entidad>(); // Usa Entidad aquí
         var todos = repositorio.GetAll();
-        foreach (var pirata in todos) {
-            if (pirata is Pirata p) {
-                piratas.AgregarFinal(p);
-            }
+        for (int i = 0; i < todos.Contar(); i++) {
+            if (todos.Obtener(i) is Pirata p) piratas.AgregarFinal(p);
         }
         return piratas;
     }
+    
 
-    public ILista<Marine> ObtenerMarines() {
+    public ILista<Entidad> ObtenerMarines() {
         _log.Debug("Obteniendo a todos los marines");
-        var marines  = new Lista<Marine>();
+        var marines  = new Lista<Entidad>();
         var todos = repositorio.GetAll();
-        foreach (var marine in todos) {
-            if (marine is Marine m) {
-                marines.AgregarFinal(m);
-            }
+        for (var i = 0; i < todos.Contar(); i++) {
+            if (todos.Obtener(i) is Marine m) marines.AgregarFinal(m);
         }
         return marines;
     }
 
-    public ILista<FrutaDelDiablo> ObtenerFrutas() {
+    public ILista<Entidad> ObtenerFrutas() {
         _log.Debug("Obteniendo todas las frutas del diablo");
-        var frutas = new Lista<FrutaDelDiablo>();
+        var frutas = new Lista<Entidad>();
         var todos = repositorio.GetAll();
-        foreach (var fruta in todos) {
-            if (fruta is FrutaDelDiablo fr) {
-                frutas.AgregarFinal(fr);
-            }
+        for (var i = 0; i < todos.Contar(); i++) {
+            if (todos.Obtener(i) is FrutaDelDiablo f) frutas.AgregarFinal(f);
         }
         return frutas;
     }
