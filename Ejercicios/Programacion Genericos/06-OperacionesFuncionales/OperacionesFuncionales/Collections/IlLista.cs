@@ -1,4 +1,4 @@
-﻿namespace One_Piece_World.Collections;
+﻿namespace OperacionesFuncionales.Collections;
 
 public interface ILista<T> {
     void AgregarInicio(T valor);

@@ -1,4 +1,4 @@
-﻿namespace One_Piece_World.Collections;
+﻿namespace OperacionesFuncionales.Collections;
 
 
 public class Nodo<T> (T valor) {
