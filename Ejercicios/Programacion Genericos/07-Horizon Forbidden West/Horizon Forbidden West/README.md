@@ -7,61 +7,73 @@ El proyecto destaca por el desarrollo de estructuras de datos personalizadas y u
 
 ---
 
-## 🧬 Modelado de Entidades (Jerarquía de GAIA)
+## 🧬 Modelado de Entidades (Jerarquía y Comportamiento)
 
-El sistema se basa en una estructura de **Records** inmutables que garantiza la integridad de los datos históricos:
+El sistema utiliza **Interfaces** para definir comportamientos específicos y **Records** para la gestión de datos inmutables.
 
 ### 1. EntidadHorizon (Base Abstracta)
 Núcleo común de todos los escaneos del Foco.
-* `Id`: Identificador numérico único.
-* `Nombre`: Denominación común del hallazgo.
-* `CodigoGaia`: Identificador oficial (Validado por Regex: `MQU-XXXX-2026`).
-* `FechaEscaneo`: Marca de tiempo automática del registro.
+* `Id`, `Nombre`, `CodigoGaia`, `FechaEscaneo`.
 
-### 2. Maquina (Especialización)
-Representación de la fauna robótica y su peligrosidad.
-* `Clase`: Enum (`Transporte`, `Lidia`, `Reconocimiento`, `Reguladora`).
-* `NivelPeligro`: Escala numérica de amenaza (1-100).
-* `DebilidadElemental`: Tipo de daño efectivo (Fuego, Hielo, Ácido).
-* `EsSaboteable`: Estado de compatibilidad con la lanza de Aloy.
+### 2. Cazador (Hereda de EntidadHorizon)
+Representa a los guerreros de las tribus. Implementa la interfaz de combate.
+* **Interfaz `ICazador`:** Define métodos como `Entrenar()`, `RealizarMision()` y `SubirRango()`.
+* **Atributos:** `Tribu`, `NivelHabilidad`, `Especializacion`.
 
-### 3. Cazador (Especialización)
-Registro de las facciones humanas del Oeste Prohibido.
-* `Tribu`: Enum (`Nora`, `Tenakth`, `Utaru`, `Oseram`).
-* `Rango`: Posición jerárquica (Buscadora, Mariscal, Capellán).
-* `FuerzaCombate`: Índice de poder militar.
+### 3. IA de Soporte / Saboteador (Hereda de EntidadHorizon)
+Representa a especialistas técnicos (como Sylens o los especialistas en el Foco).
+* **Interfaz `ISaboteador`:** Define métodos como `AnalizarDebilidad()`, `HackearRed()` y `RepararComponente()`.
+* **Atributos:** `AniosExperiencia`, `Faccion`, `CertificadoCaldero`.
+
+---
+
+## 🗂️ Diccionarios de Datos (Enums de Especialización)
+
+Para clasificar el conocimiento y el progreso, el sistema utiliza los siguientes módulos de datos:
+
+### 🛠️ Áreas de Especialización (Antiguos "Módulos")
+Representan las ramas de conocimiento que un Cazador o Saboteador debe dominar:
+* **Balística de Flechas** (Base de Datos)
+* **Ingeniería de Calderos** (Entornos de Desarrollo)
+* **Protocolos de GAIA** (Sistemas Informáticos)
+* **Análisis de Máquinas** (Lenguajes de Marcas)
+* **Sigilo y Supervivencia** (Programación)
+
+### 📈 Ciclo de Entrenamiento (Antiguos "Cursos")
+Define el nivel de veteranía del usuario en la red:
+* **Iniciado** (Primero)
+* **Vanguardia** (Segundo)
 
 ---
 
 ## 🏗️ Especificaciones Técnicas
 
 ### 📂 Gestión de Memoria y Datos
-* **Estructura Dinámica:** Implementación de una `ListaEnlazadaPropia<T>` genérica basada en nodos, gestionando manualmente la navegación y el almacenamiento.
-* **Algoritmos de Ordenación:** Uso del método **Bubble Sort** para la jerarquización de amenazas, permitiendo clasificar las entidades según su índice de peligrosidad de forma descendente.
+* **Estructura Dinámica:** Implementación de una `ListaEnlazadaPropia<T>` genérica basada en nodos.
+* **Algoritmos de Ordenación:** Uso de **Bubble Sort** para la jerarquización de amenazas por nivel de peligro.
 
 ### ⚙️ Paradigma Funcional "Hand-Made"
-El sistema integra capacidades de análisis avanzado mediante el uso de **delegados y predicados**:
-* **Filtrado Selectivo:** Generación de sub-listas basadas en criterios variables (ej. `lista.Filtrar(m => m.NivelPeligro > 80)`).
-* **Contadores Condicionales:** Cálculo de métricas sin necesidad de iteraciones externas al servicio.
-* **Búsqueda por Predicado:** Localización de registros únicos mediante funciones lambda aplicadas al motor de búsqueda.
+Uso de **delegados y predicados** para operaciones de orden superior:
+* **Filtrado:** `lista.Filtrar(c => c.Especializacion == Especializacion.Ingenieria)`.
+* **Búsqueda:** Localización de registros mediante funciones lambda.
 
 ### 🛡️ Capa de Integridad y Validación
-* **Protocolo de GAIA:** Validación de identificadores mediante **Expresiones Regulares (Regex)**.
-* **Control de Rango:** Verificación estricta de parámetros en niveles de peligrosidad y estados elementales.
+* **Protocolo de GAIA:** Validación de identificadores mediante **Regex** (`MQU-XXXX-2026`).
+* **Validación de Dominio:** Los cazadores deben pertenecer a una tribu válida y las especializaciones deben ser acordes al ciclo de entrenamiento.
 
 ### 🧱 Patrones de Diseño
-* **Factory (El Caldero):** Centralización de la instanciación de objetos para desacoplar la creación de máquinas y cazadores.
+* **Factory (El Caldero):** Centralización de la creación de objetos según el tipo de hallazgo.
 * **Inmutabilidad:** Uso de copias no destructivas (`with`) para actualizaciones seguras.
 
 ---
 
 ## 📋 Módulos del Sistema (CRUD)
-1.  **[Añadir]** Registro de hallazgos mediante el **CalderoFactory**.
-2.  **[Listar]** Visualización completa de la base de datos de máquinas.
-3.  **[Analizar]** Herramientas funcionales para detectar amenazas de nivel alto.
-4.  **[Actualizar]** Sincronización de estados usando el operador `with`.
-5.  **[Eliminar]** Baja de registros de la memoria local del Foco.
-6.  **[Ranking]** Clasificación dinámica mediante nivel de peligro.
+1. **[Añadir]** Registro de Cazadores e IAs mediante el **CalderoFactory**.
+2. **[Listar]** Visualización del catálogo de la biosfera.
+3. **[Analizar]** Filtros funcionales para detectar especialistas de nivel alto.
+4. **[Actualizar]** Sincronización de rangos y especializaciones usando el operador `with`.
+5. **[Eliminar]** Purga de datos corruptos de la memoria local.
+6. **[Ranking]** Clasificación dinámica por índice de poder o experiencia.
 
 ---
 *"El foco no solo ve lo que hay, ve lo que los demás ignoran."*
