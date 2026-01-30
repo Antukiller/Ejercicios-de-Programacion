@@ -15,14 +15,19 @@ El sistema utiliza **Interfaces** para definir comportamientos específicos y **
 Núcleo común de todos los escaneos del Foco.
 * `Id`, `Nombre`, `CodigoGaia`, `FechaEscaneo`.
 
-### 2. Cazador (Hereda de EntidadHorizon)
-Representa a los guerreros de las tribus. Implementa la interfaz de combate.
-* **Interfaz `ICazador`:** Define métodos como `Entrenar()`, `RealizarMision()` y `SubirRango()`.
-* **Atributos:** `Tribu`, `NivelHabilidad`, `Especializacion`.
+### 2. Maquina (Hereda de EntidadHorizon)
+Representa la fauna robótica. Implementa la interfaz de combate y sabotaje.
+* **Interfaz `IMaquina`:** Métodos como `AnalizarDebilidad()`, `Sabotear()` y `ExtraerComponentes()`.
+* **Atributos:** `ClaseMaquina` (Lidia, Transporte...), `NivelPeligro` (1-100), `DebilidadElemental`.
 
-### 3. IA de Soporte / Saboteador (Hereda de EntidadHorizon)
-Representa a especialistas técnicos (como Sylens o los especialistas en el Foco).
-* **Interfaz `ISaboteador`:** Define métodos como `AnalizarDebilidad()`, `HackearRed()` y `RepararComponente()`.
+### 3. Cazador (Hereda de EntidadHorizon)
+Representa a los guerreros de las tribus (Equivalente a *Estudiante*).
+* **Interfaz `ICazador`:** Métodos como `Entrenar()`, `RealizarMision()` y `SubirRango()`.
+* **Atributos:** `Tribu`, `NivelHabilidad`, `Especializacion`, `Ciclo`.
+
+### 4. Saboteador (Hereda de EntidadHorizon)
+Representa a especialistas técnicos y maestros (Equivalente a *Docente*).
+* **Interfaz `ISaboteador`:** Métodos como `HackearRed()`, `RepararNucleo()` y `EnseñarHabilidad()`.
 * **Atributos:** `AniosExperiencia`, `Faccion`, `CertificadoCaldero`.
 
 ---
@@ -32,7 +37,7 @@ Representa a especialistas técnicos (como Sylens o los especialistas en el Foco
 Para clasificar el conocimiento y el progreso, el sistema utiliza los siguientes módulos de datos:
 
 ### 🛠️ Áreas de Especialización (Antiguos "Módulos")
-Representan las ramas de conocimiento que un Cazador o Saboteador debe dominar:
+Ramas de conocimiento que un Cazador o Saboteador debe dominar para operar el Foco:
 * **Balística de Flechas** (Base de Datos)
 * **Ingeniería de Calderos** (Entornos de Desarrollo)
 * **Protocolos de GAIA** (Sistemas Informáticos)
@@ -40,7 +45,7 @@ Representan las ramas de conocimiento que un Cazador o Saboteador debe dominar:
 * **Sigilo y Supervivencia** (Programación)
 
 ### 📈 Ciclo de Entrenamiento (Antiguos "Cursos")
-Define el nivel de veteranía del usuario en la red:
+Define la veteranía del usuario en la red:
 * **Iniciado** (Primero)
 * **Vanguardia** (Segundo)
 
@@ -54,12 +59,12 @@ Define el nivel de veteranía del usuario en la red:
 
 ### ⚙️ Paradigma Funcional "Hand-Made"
 Uso de **delegados y predicados** para operaciones de orden superior:
-* **Filtrado:** `lista.Filtrar(c => c.Especializacion == Especializacion.Ingenieria)`.
-* **Búsqueda:** Localización de registros mediante funciones lambda.
+* **Filtrado:** `lista.Filtrar(e => e is Maquina m && m.NivelPeligro > 80)`.
+* **Conteo:** `lista.ContarSi(e => e is Cazador c && c.Ciclo == Ciclo.Iniciado)`.
 
 ### 🛡️ Capa de Integridad y Validación
-* **Protocolo de GAIA:** Validación de identificadores mediante **Regex** (`MQU-XXXX-2026`).
-* **Validación de Dominio:** Los cazadores deben pertenecer a una tribu válida y las especializaciones deben ser acordes al ciclo de entrenamiento.
+* **Protocolo de GAIA:** Validación mediante **Regex** (`MQU-XXXX-2026`).
+* **Validación de Dominio:** Los niveles de peligro y años de experiencia deben estar en rangos positivos y coherentes.
 
 ### 🧱 Patrones de Diseño
 * **Factory (El Caldero):** Centralización de la creación de objetos según el tipo de hallazgo.
@@ -68,12 +73,12 @@ Uso de **delegados y predicados** para operaciones de orden superior:
 ---
 
 ## 📋 Módulos del Sistema (CRUD)
-1. **[Añadir]** Registro de Cazadores e IAs mediante el **CalderoFactory**.
+1. **[Añadir]** Registro de Máquinas, Cazadores e IAs mediante el **CalderoFactory**.
 2. **[Listar]** Visualización del catálogo de la biosfera.
-3. **[Analizar]** Filtros funcionales para detectar especialistas de nivel alto.
-4. **[Actualizar]** Sincronización de rangos y especializaciones usando el operador `with`.
-5. **[Eliminar]** Purga de datos corruptos de la memoria local.
-6. **[Ranking]** Clasificación dinámica por índice de poder o experiencia.
+3. **[Analizar]** Filtros funcionales para detectar amenazas o especialistas.
+4. **[Actualizar]** Sincronización de niveles y especializaciones usando el operador `with`.
+5. **[Eliminar]** Purga de datos corruptos de la memoria.
+6. **[Ranking]** Clasificación dinámica por peligrosidad o veteranía.
 
 ---
 *"El foco no solo ve lo que hay, ve lo que los demás ignoran."*

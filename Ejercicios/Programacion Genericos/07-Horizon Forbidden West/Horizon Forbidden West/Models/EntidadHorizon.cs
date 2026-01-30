@@ -5,6 +5,9 @@ public record class EntidadHorizon {
     public string Nombre { get; init; } = string.Empty;
     public string CodigoGaia { get; init; } = string.Empty;
     public string Descripcion { get; init; }  = string.Empty;
+    public DateTime CreatedAt { get; init; }
+    public DateTime UpdatedAt { get; init; }
+    public Is
         
     
 }
