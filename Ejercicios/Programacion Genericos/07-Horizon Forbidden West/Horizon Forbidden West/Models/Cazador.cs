@@ -41,6 +41,7 @@ public sealed record Cazador : EntidadHorizon, ICazador {
                 -------------------------------------------------------
                 [IDENTIDAD DE CAZADOR]: {NombreCompleto}
                 -------------------------------------------------------
+                Codigo GAIA:   {CodigoGaia}
                 Tribu:         {Tribu}
                 Rango:         {Rango}
                 Ciclo:         {Entrenamiento}

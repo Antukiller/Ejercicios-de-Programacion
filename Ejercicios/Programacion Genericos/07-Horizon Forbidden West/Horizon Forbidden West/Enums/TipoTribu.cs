@@ -5,5 +5,6 @@ public enum TipoTribu {
     Tenakth,    // Los guerreros del Oeste Prohibido
     Utaru,      // Los cantores de las llanuras
     Oseram,     // Los maestros forjadores
-    Banuk       // Los supervivientes del norte
+    Banuk,      // Los supervivientes del norte
+    Carja
 }
