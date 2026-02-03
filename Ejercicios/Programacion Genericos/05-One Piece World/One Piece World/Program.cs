@@ -8,7 +8,7 @@ using One_Piece_World.Collections;
 using One_Piece_World.Enum;
 using One_Piece_World.Repositories;
 using One_Piece_World.Service;
-using One_Piece_World.Validator.Common; // Ajusta a tu namespace real
+using One_Piece_World.Validator.Common;  
 
 // ====================================================================
 // GESTIÓN DE ENTIDADES ONE PIECE - PROGRAMA PRINCIPAL
@@ -200,7 +200,7 @@ void MenuAñadirEntidad(IServiceOnePiece service) {
     }
 
     if (nueva != null) {
-        service.AñadirEntidad(nueva); // Sin el "var resultado ="
+        service.AñadirEntidad(nueva);
         Console.WriteLine("✅ Registro procesado exitosamente.");
     }
 }

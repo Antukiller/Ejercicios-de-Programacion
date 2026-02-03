@@ -65,7 +65,7 @@ public record Maquina : EntidadHorizon, IMaquina {
                 =======================================================
                 [REGISTRO DE MÁQUINA]: {NombreCompleto}
                 =======================================================
-                Identificador:  {CodigoGaia}
+                Codigo GAIA:  {CodigoGaia}
                 Clasificación:  {Tipo}
                 Amenaza:        {Peligrosidad}
                 Debilidad:      {DebilidadElemental}

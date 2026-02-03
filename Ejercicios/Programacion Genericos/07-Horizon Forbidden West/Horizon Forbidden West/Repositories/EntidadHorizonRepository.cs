@@ -13,6 +13,8 @@ public class EntidadHorizonRepository : IEntidadHorizonRepository {
     private int _idCounter;
     
     private EntidadHorizonRepository() { }
+
+    public static EntidadHorizonRepository Instance => _lazy.Value;
     
     
     

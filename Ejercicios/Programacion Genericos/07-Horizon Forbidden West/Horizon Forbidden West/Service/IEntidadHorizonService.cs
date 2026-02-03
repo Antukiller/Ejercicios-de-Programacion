@@ -16,6 +16,8 @@ public interface IEntidadHorizonService {
     public ILista<Cazador> GetCazadoresOrdeBy(TipoOrdenamiento ordenamiento = TipoOrdenamiento.CodigoGaia);
     
     public ILista<Saboteador> GetSaboteadores(TipoOrdenamiento ordenamiento = TipoOrdenamiento.CodigoGaia);
+
+    EntidadHorizon GetById(int id);
     
     EntidadHorizon GetByCodigoGaia(string codigoGaia);
     
@@ -29,5 +31,5 @@ public interface IEntidadHorizonService {
     
     InformeCazador GenerarInformeCazador(CicloEntrenamiento? cicloEntrenamiento = null);
     
-    InformeSaboteador GenerarInformeSaboteador(CicloEntrenamiento? cicloEntrenamiento = null);
+    InformeSaboteador GenerarInformeSaboteador();
 }

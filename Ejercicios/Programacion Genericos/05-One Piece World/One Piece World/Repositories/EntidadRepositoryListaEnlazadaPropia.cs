@@ -89,7 +89,7 @@ public class EntidadRepositoryListaEnlazadaPropia : IEntidadReposytory {
         var item = _listado.Obtener(index);
         var actualizada = entity with {
             Id = id,
-            UpdatedAt = DateTime.Now
+            UpdatedAt = DateTime.UtcNow
         };
         _listado.Eliminar(index);
         _listado.Agregar(actualizada, index);
@@ -108,9 +108,6 @@ public class EntidadRepositoryListaEnlazadaPropia : IEntidadReposytory {
         var item =  _listado.Obtener(id) with { IsDeleted = true };
         _listado.Eliminar(id);
         return item;
-        
-        //var item = entidad with { IsDeleted = true };
-        //return Update(id,  item);
     }
 
     public int TotalEntidades => _listado.Contar();
@@ -127,10 +124,8 @@ public class EntidadRepositoryListaEnlazadaPropia : IEntidadReposytory {
     
     private bool Exists(Entidad entidad) {
         _log.Debug("Comprobando existencia de la entidad: {Nombre}", entidad.NombreCompleto);
-    
-        // Al tener IEnumerator, podemos recorrer la lista de forma natural
+        
         foreach (var item in _listado) {
-            // 1. Saltamos los elementos borrados (Soft Delete)
             if (item.IsDeleted) continue;
 
             // 2. Comparamos por NombreCompleto (ignora mayúsculas/minúsculas)

@@ -81,8 +81,7 @@ public class ServiceOnePiece(
             // Caso por defecto (si no coincide con ninguno de los anteriores)
             _ => entidad 
         };
-
-        // Siguiendo la regla de tu profe: si el validador devolvió null, paramos
+        
         if (entidadValidada == null) {
             _log.Warning("Validación fallida: El objeto devuelto por el validador es null.");
             return;

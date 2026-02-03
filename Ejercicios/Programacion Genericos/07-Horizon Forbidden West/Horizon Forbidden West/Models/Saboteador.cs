@@ -47,6 +47,7 @@ public sealed record Saboteador : EntidadHorizon, ISaboteador {
                 #######################################################
                 [SABOTEADOR CLASIFICADO]: {NombreCompleto}
                 #######################################################
+                Codigo GAIA:   {CodigoGaia}
                 Facción:        {Faccion}
                 Experiencia:    {añosExperiencia} años
                 Especialidad:   {AreaMaestra}
