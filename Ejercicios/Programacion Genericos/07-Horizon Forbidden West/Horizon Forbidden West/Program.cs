@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using Horizon_Forbidden_West.Collections;
 using Horizon_Forbidden_West.Enums;
+using Horizon_Forbidden_West.Factory;
 using Horizon_Forbidden_West.Models;
 using Horizon_Forbidden_West.Repositories;
 using Horizon_Forbidden_West.Service;
@@ -39,7 +40,24 @@ void Main() {
         new SaboteadorValidador(),
         new ValidadorMaquina()
     );
+    
+    
+    // --- SECCIÓN DE SEMILLAS ---
+    Console.WriteLine("⏳ Sincronizando datos...");
 
+    var cazadores = CazadorFactory.Seed();
+    foreach (var c in cazadores) { service.Save(c); }
+    Console.WriteLine($"✅ {cazadores.Count()} Cazadores cargados.");
+
+    var saboteadores = SaboteadorFactory.Seed();
+    foreach (var s in saboteadores) { service.Save(s); }
+    Console.WriteLine($"✅ {saboteadores.Count()} Saboteadores cargados.");
+
+    var maquinas = MaquinaFactory.Seed();
+    foreach (var m in maquinas) { service.Save(m); }
+    Console.WriteLine($"✅ {maquinas.Count()} Máquinas cargadas.");
+    
+    
     OpcionMenu opcion;
     const string RegexMenu = @"^([0-9]|1[0-8])$";
 
@@ -135,12 +153,34 @@ void GenerarInformeCazadores(IEntidadHorizonService service) {
 // ====================================================================
 
 void ListarTodo(IEntidadHorizonService service) {
+    // 1. Obtenemos la lista
     var lista = service.GetAll();
+
+    // 2. Cabecera con separador visual
+    WriteLine(new string('─', 55));
     WriteLine($"{"ID",-5} | {"NOMBRE",-25} | {"TIPO",-15}");
+    WriteLine(new string('─', 55));
+
+    // 3. Verificación de seguridad
+    if (lista == null || lista.Count() == 0) {
+        WriteLine("⚠️  No hay datos registrados en el sistema ATLAS.");
+        return;
+    }
+
+    // 4. Bucle de impresión
     foreach (var e in lista) {
-        string tipo = e switch { Maquina => "Máquina", Cazador => "Cazador", Saboteador => "Saboteador", _ => "Desconocido" };
+        // Pattern matching para el tipo
+        string tipo = e switch { 
+            Maquina => "🦖 Máquina", 
+            Cazador => "🏹 Cazador", 
+            Saboteador => "💻 Saboteador", 
+            _ => "❓ Desconocido" 
+        };
+
+        // Si Id es 0 o null, asegúrate de que tu modelo lo genere
         WriteLine($"{e.Id,-5} | {e.Nombre,-25} | {tipo,-15}");
     }
+    WriteLine(new string('─', 55));
 }
 
 void AnadirMaquina(IEntidadHorizonService service) {

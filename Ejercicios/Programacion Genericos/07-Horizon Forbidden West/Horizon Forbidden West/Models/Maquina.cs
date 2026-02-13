@@ -14,7 +14,7 @@ public record Maquina : EntidadHorizon, IMaquina {
         Console.WriteLine($"[Sistema de Escaner]: Escaneando maquina -> {NombreCompleto}....");
 
         string consejoTactico = DebilidadElemental switch {
-            Elementos.Acido => "⚠️ TÁCTICA: Dispara a los depósitos de ácido para causar una explosión corrosiva.",
+            Elementos.Acido => $"⚠️ TÁCTICA: Dispara a los depósitos de ácido para causar una explosión corrosiva .",
             Elementos.Fuego => "🔥 TÁCTICA: El sobrecalentamiento causará una explosion de área.",
             Elementos.Electricidad => "⚡ TÁCTICA: Impacta en las células de energía para sobrecargar y aturdir.",
             Elementos.Hielo => "❄️ TÁCTICA: Una vez congelada, los ataques físicos harán el triple de daño.",
