@@ -1,58 +1,70 @@
-# 🐺 PROYECTO: "THE WITCHER'S CONTRACTS" (CONTRACT MANAGER V2)
+# 🐺 Proyecto: The Witcher's Contracts (Sistema de Gestión de Gremios)
 
-![Status: Active](https://img.shields.io/badge/Status-Active-green)
-![Pattern: Inheritance_%26_Interfaces-orange)
-
-## 📝 1. El Escenario
-En el continente, los contratos de brujo son la única forma de mantener a raya a las criaturas de la conjunción. Como regidor de los tablones de anuncios en **Novigrado**, debes programar un sistema robusto que gestione estos avisos. A diferencia de otros sistemas, este debe ser escalable mediante una jerarquía de clases sólida.
+## 📝 Escenario
+El Tablón de Anuncios de Novigrado necesita un sistema automatizado para gestionar los encargos de los brujos. El objetivo es desarrollar una arquitectura sólida en C# que permita diferenciar entre **Contratos de Monstruos** y **Contratos de Asalto**, gestionando sus tácticas, aceites y señales de forma eficiente.
 
 ---
 
-## 🏛️ 2. Arquitectura de Datos (Herencia + Interfaces)
-Para este ejercicio, el sistema debe estructurarse siguiendo el principio de reutilización de código.
+## 🏗️ 1. Arquitectura de Datos y Tipado
 
-### La Interfaz (`IContrato`)
-Define el comportamiento obligatorio:
-* `void MostrarDetalles()`: Firma del método que imprimirá la información en consola.
+### A. Enumeraciones (Categorización)
+* **`EspecieCriatura`**: `Necrofago`, `Espectro`, `Híbrido`, `Insectoide`, `Elementoide`, `Draconico`, `Vampiro`.
+* **`TipoAceite`**: `Necrofagos`, `Espectros`, `Vampiros`, `Hibridos`, `Constructos`, `Ninguno`.
 
-### La Clase Base (`ContratoBase`) - **HERENCIA**
-Debe ser una **clase abstracta** que implemente `IContrato` y contenga los atributos comunes:
-* **Atributos:** `Id` (único), `Titulo`, `NivelRecomendado`, `RecompensaCoronas`.
-* **Constructor:** Debe inicializar todos estos campos obligatoriamente.
-* **Validación:** El `Titulo` no puede ser vacío y la `Recompensa` debe ser mayor a 0.
-
-### Las Clases Especializadas (Hijas)
-1.  **`ContratoMonstruo`**: Hereda de `ContratoBase`. Añade el atributo `TipoCriatura` (Especie del monstruo).
-2.  **`ContratoEscolta`**: Hereda de `ContratoBase`. Añade los atributos `DistanciaKM` y `Peligrosidad` (1-100).
+### B. Diccionario de Conocimiento (Clases Estáticas)
+* **`Señal`**: Clase estática con constantes `string` que describen el efecto de *Igni, Aard, Quen, Axii y Yrden*.
+* **`Debilidades`**: Clase estática con constantes `string` sobre vulnerabilidades (Plata, Fuego, Relictos).
 
 ---
 
-## ⚡ 3. El Oráculo Funcional (Extensiones)
-Implementa métodos de extensión para `List<ContratoBase>` que permitan:
-* `Filtrar()`: Localizar contratos por cualquier criterio (ej. contratos de nivel < 10).
-* `SumarRecompensas()`: Calcular el oro total necesario para pagar todos los contratos actuales.
-* `BuscarMasRentable()`: Devolver el contrato que ofrece más Coronas por cada punto de Nivel Recomendado.
+## 📜 2. Interfaces (Contratos de Comportamiento)
+
+El sistema debe basarse en la herencia de interfaces para garantizar que cada contrato tenga las herramientas adecuadas:
+
+1.  **`IContrato`**: Interfaz base con el método `void MostrarDetalles()`.
+2.  **`IBestiario` (Hereda de `IContrato`)**: 
+    * `void PrepararAceite()`: Determina y aplica el aceite según la especie.
+    * `string SeleccionarSeñal()`: Devuelve la descripción de la señal óptima.
+    * `void MostrarDebilidades()`: Imprime el reporte táctico para el brujo.
+3.  **`IEstrategia` (Hereda de `IContrato`)**:
+    * `int CalcularProbabilidadExito()`: Lógica basada en el número de enemigos y sigilo.
+    * `void PlanificarRuta()`: Determina el método de entrada (infiltración vs fuerza bruta).
 
 ---
 
-## 💾 4. La Alforja Mágica (Caché Sandevistan)
-Implementa el sistema de caché para que los brujos no esperen:
-* **Mecánica:** Clase Singleton `WitcherCache` con un diccionario interno.
-* **Protocolo:** Si se busca "Contratos de Espectros", el sistema debe mirar primero en la caché.
-* **Invalidación:** Cualquier alta de contrato nuevo debe "vaciar" la alforja (limpiar caché).
+## 🏛️ 3. Jerarquía de Clases
+
+### Clase Base Abstracta: `ContratoBase`
+* **Constructor Primario**: `(int id, string titulo, int nivel, double recompensa)`.
+* **Propiedades**: Inmutables mediante el uso de `{ get; init; }`.
+* **Implementación**: Debe implementar `IContrato` y marcar `MostrarDetalles()` como `abstract`.
+
+### Clases Especializadas (`sealed`):
+1.  **`ContratoMonstruo`**:
+    * Atributo: `EspecieCriatura Monstruo`.
+    * **Lógica**: Uso de `switch expressions` para mapear el Enum con la clase estática `Señal`.
+2.  **`ContratoAsalto`**:
+    * Atributos: `int NumeroEnemigos`, `bool RequiereSigilo`.
+    * **Lógica**: Cálculo dinámico de dificultad.
 
 ---
 
-## 📊 5. Consultas del Tablón
-Muestra por consola los resultados de:
-1.  **Listado de Contratos de Monstruo** que sean del tipo "Dracónido".
-2.  **Búsqueda** del contrato con mayor recompensa (usando la función de extensión).
-3.  **Conteo** de cuántos contratos de escolta superan los 50km de distancia.
+## 🧪 4. Lógica de Ejecución (Program.cs)
+El flujo principal debe demostrar el uso de polimorfismo y técnicas modernas:
+* **Colecciones**: Uso de `List<ContratoBase>`.
+* **Pattern Matching**: Recorrer la lista y usar `is` (ej. `if (contrato is IBestiario b)`) para ejecutar los comportamientos específicos de cada interfaz.
 
 ---
 
-## ⚠️ Reglas del Maestro Armero (Restricciones)
-* **Colección:** Utiliza una colección que asegure que no existan contratos con el mismo `Id` (evita duplicados).
-* **Formato de Moneda:** Las coronas deben mostrarse como `1,250.00 orens`.
-* **Feedback de Caché:** Al recuperar datos, imprime en color amarillo:
-    `[MEDITACIÓN] >> Extrayendo datos de la memoria sensorial...`
+## 💾 5. Patrón de Diseño: Singleton
+Implementar una clase `WitcherCache` que:
+1.  Garantice una **única instancia** en memoria.
+2.  Almacene temporalmente la lista de contratos activos.
+3.  Simule la persistencia de datos (Carga/Guardado).
+
+---
+
+## ✅ Requisitos Técnicos
+* Uso de **C# 12** (Constructores primarios).
+* Uso de **Interpolación de cadenas** y **Switch Expressions**.
+* Limpieza de código: Separación de archivos por carpetas (`Models`, `Enums`, `Constants`).
