@@ -24,6 +24,5 @@ public sealed record ContratoMonstruo(int id, string titulo, int nivelRecomendad
     }
 
     public void MostraDebilidades() {
-        throw new NotImplementedException();
     }
 }
