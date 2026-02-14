@@ -1,7 +1,7 @@
 ﻿namespace TheWictherContracts.Models;
 
 public interface IBestiario : IContrato {
-    void PeprararAceite();
+    void PrepararAceite();
     
     string SeleccionarSeñal();
     

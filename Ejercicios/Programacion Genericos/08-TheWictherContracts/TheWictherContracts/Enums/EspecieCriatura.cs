@@ -7,5 +7,11 @@ public enum EspecieCriatura {
     Insectoide,
     Elementoide,
     Draconico,
-    Vampiro
+    Vampiro,
+    Relicto,    // <--- Nueva
+    Ogroido,    // <--- Nueva
+    Maldito,    // <--- Nueva
+    Humanos,
+    Animales
 }
+

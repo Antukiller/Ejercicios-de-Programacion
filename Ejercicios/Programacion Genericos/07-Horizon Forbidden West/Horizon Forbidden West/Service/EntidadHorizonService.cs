@@ -118,14 +118,14 @@ public class EntidadHorizonService(
     public EntidadHorizon Save(EntidadHorizon entidad) {
         _log.Information("Guardando nueva entidad: {entidad}", entidad);
         
-        ValidarPerosnaConLogicaPolimorfica(entidad);
+        ValidarPersonaConLogicaPolimorfica(entidad);
 
         return repository.Create(entidad) ?? throw new EntidadHorizonException.AlreadyExist(entidad.CodigoGaia);
 
     }
 
     public EntidadHorizon Update(int id, EntidadHorizon entidad) {
-        ValidarPerosnaConLogicaPolimorfica(entidad);
+        ValidarPersonaConLogicaPolimorfica(entidad);
 
         return repository.Update(id, entidad) ?? throw new EntidadHorizonException.NotFound(id.ToString());
     }
@@ -231,7 +231,7 @@ public class EntidadHorizonService(
     }
 
 
-    private void ValidarPerosnaConLogicaPolimorfica(EntidadHorizon entidad) {
+    private void ValidarPersonaConLogicaPolimorfica(EntidadHorizon entidad) {
         var errores = entidad switch {
             Maquina => valMaquina.Validar(entidad),
             Cazador => valCazador.Validar(entidad),
