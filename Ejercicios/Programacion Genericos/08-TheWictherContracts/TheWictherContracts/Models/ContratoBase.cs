@@ -4,6 +4,12 @@ public abstract record ContratoBase(int id, string titulo, int nivelRecomendado,
     public int Id { get; init; } = id;
     public string Titulo { get; init; }  
     public int NivelRecomendado { get; init; }
-    public double Recompensa { get; init; }
+    public int Recompensa { get; init; }
+    
+    public DateTime CreateAt { get; init; }
+    
+    public DateTime UpdateAt { get; init; }
+    
+    public bool IsDeleted { get; init; }
     
 }

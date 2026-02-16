@@ -4,18 +4,18 @@ namespace TheWictherContracts.Models;
 
 public sealed record ContratoMonstruo(int id, string titulo, int nivelRecomendado, double recompensa, EspecieCriatura monstruo) : ContratoBase(id, titulo, nivelRecomendado, recompensa), IBestiario {
     public EspecieCriatura Monstruo { get; init; } = monstruo;
+    
     public void MostrarDetalles() {
-        public void MostrarDetalles() {
-            Console.WriteLine("\n==================================================");
-            Console.WriteLine($"   📜 CONTRATO DE BRUJO #{Id}   ");
-            Console.WriteLine("==================================================");
-            Console.WriteLine($"   ASUNTO:       {Titulo.ToUpper()}");
-            Console.WriteLine($"   PELIGROSIDAD: Nivel {NivelRecomendado}");
-            Console.WriteLine($"   RECOMPENSA:   {Recompensa:N0} orens");
-            Console.WriteLine($"   OBJETIVO:     {Monstruo}");
-            Console.WriteLine("==================================================\n");
-        }
+        Console.WriteLine("\n==================================================");
+        Console.WriteLine($"   📜 CONTRATO DE BRUJO #{Id}   ");
+        Console.WriteLine("==================================================");
+        Console.WriteLine($"   ASUNTO:       {Titulo.ToUpper()}");
+        Console.WriteLine($"   PELIGROSIDAD: Nivel {NivelRecomendado}");
+        Console.WriteLine($"   RECOMPENSA:   {Recompensa:N0} orens");
+        Console.WriteLine($"   OBJETIVO:     {Monstruo}");
+        Console.WriteLine("==================================================\n");
     }
+    
 
     public void PrepararAceite() {
         Console.WriteLine("Seleccionando tipo de aceite para cada monstrtuo...");
