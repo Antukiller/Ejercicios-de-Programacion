@@ -50,7 +50,7 @@ public class ContratoService(
        
        ValidarPersonaConLogicaPolimorfica(contrato);
 
-       var actualizado = repository.GetById(id, contrato) ?? throw new ContratoException.NotFound(id.ToString());
+       var actualizado = repository.Update(id, contrato) ?? throw new ContratoException.NotFound(id.ToString());
 
        cache.Remove(id);
 
@@ -59,17 +59,31 @@ public class ContratoService(
     }
 
     public ContratoBase Delete(int id) {
-        throw new NotImplementedException();
+        _log.Information("Eliminando contrato: {id}", id);
+        var eliminado = repository.Delete(id) ??  throw new ContratoException.NotFound(id.ToString());
+        cache.Remove(id);
+        return eliminado;
     }
 
-    public InformeContratos GenerarInformeContratos() {
-        throw new NotImplementedException();
+    public InformeContratos GenerarInforme(IEnumerable<ContratoBase> contratos) {
+        var lista = contratos.ToList(); // Para no recorrerla varias veces
+
+        return new InformeContratos {
+            TotalContratos = lista.Count,
+            PorRecompensa = lista.OrderByDescending(c => c.recompensa),
+            ContratosElite = lista.Count(c => c.nivelRecomendado >= 30),
+            ContratosBasicos = lista.Count(c => c.nivelRecomendado < 15),
+            TesoroTotal = lista.Sum(c => c.recompensa),
+            NivelMedio = lista.Any() ? lista.Average(c => c.nivelRecomendado) : 0
+        };
     }
+    
+    
 
     private void ValidarPersonaConLogicaPolimorfica(ContratoBase c) {
         var errores = c switch {
             ContratoMonstruo => valContratoMonstruo.Validar(c),
-            ContratoAsalto => valContratoAsalto.Validar(c)
+            ContratoAsalto => valContratoAsalto.Validar(c),
             _ => ["Tipo de contrato no soportado para la validación."]
 
         };

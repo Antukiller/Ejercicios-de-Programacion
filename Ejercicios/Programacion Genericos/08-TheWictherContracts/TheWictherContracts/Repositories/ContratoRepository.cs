@@ -21,7 +21,7 @@ public class ContratoRepository : IContratoRepository {
     }
 
     public ContratoBase? GetById(int id) {
-        _log.Debug("Obteniendo todo los contratos por id {0}", id);
+        _log.Debug("Obteniendo todo los contratos por id {id}", id);
         return _porId.GetValueOrDefault(id);
     }
 
