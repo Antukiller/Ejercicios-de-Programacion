@@ -1,5 +1,7 @@
 ﻿using Serilog;
 using TheWictherContracts.Cache;
+using TheWictherContracts.Collections;
+using TheWictherContracts.Enums;
 using TheWictherContracts.Exceptions;
 using TheWictherContracts.Models;
 using TheWictherContracts.Repositories;
@@ -38,7 +40,7 @@ public class ContratoService(
     public ContratoBase Save(ContratoBase contrato) {
         _log.Information("Guardando nuevo contrato: {contrato}", contrato);
         
-        ValidarPersonaConLogicaPolimorfica(contrato);
+        ValidarContratoConLogicaPolimorfica(contrato);
 
         var nuevoContrato = repository.Create(contrato) ?? throw new AlreadyExists(contrato.id.ToString());
 
@@ -48,7 +50,7 @@ public class ContratoService(
     public ContratoBase Update(int id, ContratoBase contrato) {
        _log.Information("Actualizando contrato con Is {id}: {contrato}", id, contrato);
        
-       ValidarPersonaConLogicaPolimorfica(contrato);
+       ValidarContratoConLogicaPolimorfica(contrato);
 
        var actualizado = repository.Update(id, contrato) ?? throw new ContratoException.NotFound(id.ToString());
 
@@ -65,22 +67,76 @@ public class ContratoService(
         return eliminado;
     }
 
-    public InformeContratos GenerarInforme(IEnumerable<ContratoBase> contratos) {
-        var lista = contratos.ToList(); // Para no recorrerla varias veces
+    public InformeMonstruo GenerarInformeMonstruos(EspecieCriatura? especie = null) {
+        _log.Information("Generando informe de monstruos con ILista Extensions");
 
-        return new InformeContratos {
-            TotalContratos = lista.Count,
-            PorRecompensa = lista.OrderByDescending(c => c.recompensa),
-            ContratosElite = lista.Count(c => c.nivelRecomendado >= 30),
-            ContratosBasicos = lista.Count(c => c.nivelRecomendado < 15),
-            TesoroTotal = lista.Sum(c => c.recompensa),
-            NivelMedio = lista.Any() ? lista.Average(c => c.nivelRecomendado) : 0
+        // 1. Obtenemos todos y filtramos manualmente los que son Monstruos
+        var todos = repository.GetAll(); // Esto devuelve tu ILista<ContratoBase>
+        var soloMonstruos = new Lista<ContratoMonstruo>();
+    
+        foreach (var c in todos) {
+            if (c is ContratoMonstruo m) {
+                // Filtro por especie si se proporciona
+                if (especie == null || m.Monstruo == especie)
+                    soloMonstruos.AddLast(m);
+            }
+        }
+
+        if (soloMonstruos.Size == 0) return new InformeMonstruo();
+
+        // 2. Cálculos usando tus extensiones
+        var total = soloMonstruos.Size;
+        var sumaRecompensas = soloMonstruos.Sum(m => m.Recompensa);
+    
+        // Para el nivel más alto, podemos usar tu OrderBy y coger el último
+        var ordenadosPorNivel = soloMonstruos.OrderBy(m => m.NivelRecomendado);
+        var nivelMax = ordenadosPorNivel.GetAt(ordenadosPorNivel.Size - 1).NivelRecomendado;
+
+        return new InformeMonstruo {
+            Contratos = soloMonstruos.OrderBy(m => m.Recompensa), // Usando tu burbuja
+            Total = total,
+            RecompensaMedia = (double)sumaRecompensas / total,
+            NivelMasAlto = nivelMax
         };
     }
-    
-    
 
-    private void ValidarPersonaConLogicaPolimorfica(ContratoBase c) {
+    public InformeAsalto GenerarInformeAsaltos(bool? soloSigilo = null) {
+        _log.Information("Generando informe de asaltos con ILista Extensions");
+
+        var todos = repository.GetAll();
+        var soloAsaltos = new Lista<ContratoAsalto>();
+
+        foreach (var c in todos) {
+            if (c is ContratoAsalto a) {
+                if (soloSigilo == null || a.RequiereSigilo == soloSigilo)
+                    soloAsaltos.AddLast(a);
+            }
+        }
+
+        if (soloAsaltos.Size == 0) return new InformeAsalto();
+
+        // Usamos tus métodos de extensión
+        int total = soloAsaltos.Size;
+        int enemigosTotales = soloAsaltos.Sum(a => a.NumeroEnemigos);
+        int misionesSigilo = soloAsaltos.Count(a => a.RequiereSigilo);
+    
+        // Para la probabilidad media, como no tienes Average, sumamos y dividimos
+        double sumaProbabilidades = 0;
+        foreach(var a in soloAsaltos) {
+            sumaProbabilidades += a.ProbabiidadExito();
+        }
+
+        return new InformeAsalto {
+            Contratos = soloAsaltos,
+            Total = total,
+            TotalEnemigos = enemigosTotales,
+            MisionesSigilo = misionesSigilo,
+            ProbabilidadExitoMedia = sumaProbabilidades / total
+        };
+    }
+
+
+    private void ValidarContratoConLogicaPolimorfica(ContratoBase c) {
         var errores = c switch {
             ContratoMonstruo => valContratoMonstruo.Validar(c),
             ContratoAsalto => valContratoAsalto.Validar(c),

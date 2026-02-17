@@ -1,4 +1,5 @@
-﻿using TheWictherContracts.Models;
+﻿using TheWictherContracts.Enums;
+using TheWictherContracts.Models;
 
 namespace TheWictherContracts.Service;
 
@@ -14,8 +15,11 @@ public interface IContratoService {
     ContratoBase Update(int id, ContratoBase contrato);
 
     ContratoBase Delete(int id);
+    
+    InformeMonstruo GenerarInformeMonstruos(EspecieCriatura? especie = null);
 
-    InformeContratos GenerarInformeContratos();
+    // Informe especializado para Asaltos (con filtro opcional)
+    InformeAsalto GenerarInformeAsaltos(bool? soloSigilo = null);
 
 
 

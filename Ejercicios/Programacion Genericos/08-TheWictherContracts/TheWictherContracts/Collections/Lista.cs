@@ -2,33 +2,29 @@
 
 namespace TheWictherContracts.Collections;
 
+
+/// <summary>
+///     Implementación de una lista enlazada genérica.
+/// </summary>
+/// <typeparam name="T">Tipo de los elementos almacenados en la lista.</typeparam>
 public class Lista<T> : ILista<T> {
     private Nodo<T>? _cabeza;
-    public IEnumerator<T> GetEnumerator() {
-        var actual = _cabeza;
-        while (actual != _cabeza) {
-            yield return actual.Value;
-            actual = actual.Next;
-        }
-    }
 
-    IEnumerator IEnumerable.GetEnumerator() {
-        return GetEnumerator();
-    }
-
-    public int Size { get; private set; }
-    
+    /// <inheritdoc cref="ILista{T}.AddFirst" />
     public void AddFirst(T item) {
         var nuevoNodo = new Nodo<T>(item);
         if (_cabeza == null) {
             _cabeza = nuevoNodo;
-        }  else {
-            _cabeza.Next = _cabeza;
+        }
+        else {
+            nuevoNodo.Next = _cabeza;
             _cabeza = nuevoNodo;
         }
+
         Size++;
     }
 
+    /// <inheritdoc cref="ILista{T}.AddLast" />
     public void AddLast(T item) {
         var nuevoNodo = new Nodo<T>(item);
         if (_cabeza == null) {
@@ -36,14 +32,15 @@ public class Lista<T> : ILista<T> {
         }
         else {
             var actual = _cabeza;
-            while (actual.Next != null) {
+            while (actual.Next != null)
                 actual = actual.Next;
-                actual.Next = nuevoNodo;
-            }
+            actual.Next = nuevoNodo;
         }
+
         Size++;
     }
 
+    /// <inheritdoc cref="ILista{T}.AddAt" />
     public void AddAt(int index, T item) {
         if (index < 0 || index > Size)
             throw new ArgumentOutOfRangeException(nameof(index), "Índice fuera de rango");
@@ -63,18 +60,20 @@ public class Lista<T> : ILista<T> {
         }
     }
 
+    /// <inheritdoc cref="ILista{T}.RemoveFirst" />
     public void RemoveFirst() {
-        if (_cabeza == null) 
+        if (_cabeza == null)
             throw new InvalidOperationException("La lista está vacía");
-            _cabeza = _cabeza.Next;
-            Size--;
+        _cabeza = _cabeza.Next;
+        Size--;
     }
 
+    /// <inheritdoc cref="ILista{T}.RemoveLast" />
     public void RemoveLast() {
         if (_cabeza == null)
-            throw new InvalidOperationException("la lista está vacía");
+            throw new InvalidOperationException("La lista está vacía");
 
-        if (_cabeza == null) {
+        if (_cabeza.Next == null) {
             _cabeza = null;
         }
         else {
@@ -87,9 +86,10 @@ public class Lista<T> : ILista<T> {
         Size--;
     }
 
+    /// <inheritdoc cref="ILista{T}.RemoveAt" />
     public void RemoveAt(int index) {
-        if (index < 0 || index > Size)
-            throw new ArgumentOutOfRangeException(nameof(index), "Indice fuera de rango");
+        if (index < 0 || index >= Size)
+            throw new ArgumentOutOfRangeException(nameof(index), "Índice fuera de rango");
 
         if (index == 0) {
             RemoveFirst();
@@ -98,17 +98,20 @@ public class Lista<T> : ILista<T> {
             var actual = _cabeza;
             for (var i = 0; i < index - 1; i++)
                 actual = actual?.Next;
+
             actual!.Next = actual.Next?.Next;
             Size--;
         }
     }
 
+    /// <inheritdoc cref="ILista{T}.GetFirst" />
     public T GetFirst() {
         if (_cabeza == null)
             throw new InvalidOperationException("La lista está vacía");
         return _cabeza.Value;
     }
 
+    /// <inheritdoc cref="ILista{T}.GetLast" />
     public T GetLast() {
         if (_cabeza == null)
             throw new InvalidOperationException("La lista está vacía");
@@ -118,15 +121,17 @@ public class Lista<T> : ILista<T> {
         return actual!.Value;
     }
 
+    /// <inheritdoc cref="ILista{T}.GetAt" />
     public T GetAt(int index) {
         if (index < 0 || index >= Size)
-            throw new ArgumentOutOfRangeException(nameof(index), "Indice fuera de rango");
+            throw new ArgumentOutOfRangeException(nameof(index), "Índice fuera de rango");
         var actual = _cabeza;
-        for (var i = 0; i < Size - 1; i++)
+        for (var i = 0; i < index; i++)
             actual = actual?.Next;
         return actual!.Value;
     }
 
+    /// <inheritdoc cref="ILista{T}.Contains" />
     public bool Contains(T item) {
         var actual = _cabeza;
         while (actual != null) {
@@ -134,30 +139,49 @@ public class Lista<T> : ILista<T> {
                 return true;
             actual = actual.Next;
         }
+
         return false;
     }
 
+    /// <inheritdoc cref="ILista{T}.IsEmpty" />
     public bool IsEmpty() {
         return Size == 0;
     }
 
+    /// <inheritdoc cref="ILista{T}.Clear" />
     public void Clear() {
-        _cabeza =  null;
+        _cabeza = null;
         Size = 0;
     }
 
+    /// <inheritdoc cref="ILista{T}.Display" />
     public void Display() {
         var actual = _cabeza;
         while (actual != null) {
             Console.Write(actual.Value);
-            if (actual.Next != null) {
+            if (actual.Next != null)
                 Console.Write(" -> ");
-            }
             actual = actual.Next;
         }
+
         Console.WriteLine();
     }
 
+    /// <inheritdoc cref="IEnumerator{T}" />
+    public IEnumerator<T> GetEnumerator() {
+        var actual = _cabeza;
+        while (actual != null) {
+            yield return actual.Value;
+            actual = actual.Next;
+        }
+    }
+
+    /// <inheritdoc cref="IEnumerable{T}" />
+    IEnumerator IEnumerable.GetEnumerator() {
+        return GetEnumerator();
+    }
+
+    /// <inheritdoc cref="ILista{T}.IndexOf" />
     public int IndexOf(T item) {
         var actual = _cabeza;
         var indice = 0;
@@ -170,4 +194,7 @@ public class Lista<T> : ILista<T> {
 
         return -1;
     }
+
+    /// <inheritdoc cref="ILista{T}.Size" />
+    public int Size { get; private set; }
 }

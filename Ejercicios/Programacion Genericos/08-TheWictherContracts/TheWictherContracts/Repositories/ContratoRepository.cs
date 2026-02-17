@@ -12,7 +12,9 @@ public class ContratoRepository : IContratoRepository {
 
     private int _idCounter;
     
-    private ContratoRepository Instance => Lazy.Value;
+    private ContratoRepository() { }
+    
+    public static ContratoRepository Instance => Lazy.Value;
     
     
     public IEnumerable<ContratoBase> GetAll() {
