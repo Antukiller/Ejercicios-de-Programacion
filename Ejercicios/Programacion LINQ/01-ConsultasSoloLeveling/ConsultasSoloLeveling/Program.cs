@@ -118,13 +118,24 @@ nameGuild.ForEach(WriteLine);
 // ============================================================
 
 WriteLine("\n*** 11. Análisis de Niveles: Count, Average, Max y Min de niveles ***");
-// Tu código aquí...
+var level = listHunters.Select(a => a.Nivel).ToList();
+
+WriteLine($"Count: {level.Count}");
+WriteLine($"Average: {level.Average():F2}");
+WriteLine($"Max: {level.Max()}");
+WriteLine($"Min: {level.Min()}");
 
 WriteLine("\n*** 12. Cazadores del Gremio Blanco: Miembros de 'White Tiger' ***");
-// Tu código aquí...
+var memberGuild = listHunters
+    .Where(a => a.Gremio == "White Tiger")
+    .ToList();
+
+memberGuild.ForEach(WriteLine);
 
 WriteLine("\n*** 13. MVP: El objeto Cazador con el nivel más alto ***");
-// Tu código aquí...
+var objectHunter = listHunters.MaxBy(a => a.Nivel);
+
+WriteLine(objectHunter);
 
 
 // ============================================================
@@ -132,33 +143,94 @@ WriteLine("\n*** 13. MVP: El objeto Cazador con el nivel más alto ***");
 // ============================================================
 
 WriteLine("\n*** 14. Despliegue por Gremios: Listado de nombres bajo cada gremio ***");
-// Tu código aquí...
+var huntersByGuild = listHunters
+    .GroupBy(a => a.Gremio)
+    .ToList();
+
+huntersByGuild.ForEach(a => {
+    WriteLine($"Gremio: {a.Key}");
+    a.ToList().ForEach(WriteLine);
+});
 
 WriteLine("\n*** 15. Poder Gremial: Nivel promedio por cada gremio ***");
-// Tu código aquí...
+var guildPower =  listHunters
+    .GroupBy(a => a.Gremio)
+    .ToDictionary(a => a.Key, a => a.Average(a => a.Nivel));
+
+guildPower.ToList().ForEach(a => WriteLine($"{a.Key}: {a.Value:F2}"));
 
 WriteLine("\n*** 16. Puntas de Lanza: El cazador de mayor nivel de cada gremio ***");
-// Tu código aquí...
+var highestLevelHunterGuild =  listHunters
+    .GroupBy(a => a.Gremio)
+    .ToDictionary(a => a.Key, a => a.MaxBy(a => a.Nivel) );
+
+highestLevelHunterGuild.ToList().ForEach(a => WriteLine($"{a.Key}: {a.Value}"));
 
 WriteLine("\n*** 17. Extremos por Gremio: Máximo, Mínimo y nombres de los responsables ***");
-// Tu código aquí...
+var huntersEnd = listHunters
+    .GroupBy(a => a.Gremio)
+    .ToDictionary(
+        a => a.Key,
+        a => new {
+            Maximo = a.Max(a => a.Nivel),
+            Minimo = a.Min(a => a.Nivel),
+            MejorHunter = a.MaxBy(a => a.Nivel)?.Nombre,
+            MinimoHunter = a.MinBy(a => a.Nivel)?.Nombre,
+
+        }
+    );
+
+huntersEnd.ToList().ForEach(kv =>
+    WriteLine(
+        $"{kv.Key}: Mejor = {kv.Value} ({kv.Value.MejorHunter}), Peor={kv.Value.Minimo} ({kv.Value.MinimoHunter})"));
+
+
 
 WriteLine("\n*** 18. Estadísticas de Rango: Cantidad, Max y Promedio por Rango (S, A, B...) ***");
-// Tu código aquí...
+var huntersRange = listHunters
+    .GroupBy(a => a.Rango)
+    .Select(g => new {
+        Rango = g.Key,
+        Maximo = g.Max(a => a.Nivel),    // Operamos sobre NIVEL (int)
+        Minimo = g.Min(a => a.Nivel),    // Operamos sobre NIVEL (int)
+        Media = g.Average(a => a.Nivel), // Operamos sobre NIVEL (int)
+        Cantidad = g.Count()             // Solo contamos elementos
+    })
+    .ToList();
 
+// Para imprimirlo:
+huntersRange.ForEach(r => 
+    WriteLine($"Rango {r.Rango}: Cantidad={r.Cantidad}, Max={r.Maximo}, Min={r.Minimo}, Media={r.Media:F2}"));
 
 // ============================================================
 // V. FILTROS AVANZADOS (HAVING)
 // ============================================================
 
 WriteLine("\n*** 19. Gremios Masivos: Gremios con más de 3 cazadores ***");
-// Tu código aquí...
+var massiveGuild = listHunters
+    .GroupBy(a => a.Gremio)
+    .ToDictionary(a => a.Key, a => a.Count())
+    .Where(kv => kv.Value >= 3)
+    .ToList();
+
+massiveGuild.ForEach(kv => WriteLine($"{kv.Key}: {kv.Value} cazadores guapetones"));
 
 WriteLine("\n*** 20. Gremios de Élite: Gremios con promedio de nivel > 80 ***");
-// Tu código aquí...
+var eliteGuild =  listHunters
+    .GroupBy(a => a.Gremio)
+    .ToDictionary(a => a.Key, a => a.Average(a => a.Nivel))
+    .Where(kv => kv.Value >= 80)
+    .ToList();
+
+eliteGuild.ForEach(kv => WriteLine($"{kv.Key}: Media = {kv.Value:F2}"));
 
 WriteLine("\n*** 21. Podio de Poder: Los 3 mejores cazadores por nivel ***");
-// Tu código aquí...
+var eliteHunters = listHunters
+    .OrderByDescending(a => a.Nivel)
+    .Take(3)
+    .ToList();
+
+eliteHunters.ForEach(WriteLine);
 
 
 // ============================================================
@@ -166,7 +238,25 @@ WriteLine("\n*** 21. Podio de Poder: Los 3 mejores cazadores por nivel ***");
 // ============================================================
 
 WriteLine("\n*** 22. Paginación: Mostrar Página 1, 2 y 3 (5 elementos c/u) ***");
-// Tu código aquí...
+
+var page1 = listHunters
+    .Take(5)
+    .ToList();
+page1.ForEach(WriteLine);
+
+WriteLine();
+var page2 = listHunters
+    .Skip(5)
+    .Take(5)
+    .ToList();
+page2.ForEach(WriteLine);
+
+WriteLine();
+var page3 = listHunters
+    .Skip(10)
+    .Take(5)
+    .ToList();
+page3.ForEach(WriteLine);
 
 WriteLine("\n*** 23. Alerta de Monarca: ¿Existe algún cazador de clase 'Monarca'? ***");
 // Tu código aquí...
