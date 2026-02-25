@@ -6,7 +6,7 @@ namespace SistemaGestiónNarutoWorld.Exceptions;
 public abstract class ShinobiException(string message) : DomainException(message) {
     /// <summary>Se lanza cuando no existe el registro solicitado.</summary>
     public sealed class NotFound(string id)
-        : ShinobiException($"No se ha encontrado ninguna persona con el identificador: {id}");
+        : ShinobiException($"No se ha encontrado ninguna persona con el identificador: {id}.");
 
     /// <summary>Se lanza cuando fallan las reglas de validación de negocio.</summary>
     public sealed class Validation(IEnumerable<string> errors)
