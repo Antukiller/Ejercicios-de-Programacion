@@ -9,17 +9,20 @@ namespace SistemaGestiónNarutoWorld.Models;
 /// <param name="DniNinja"></param>
 /// <param name="Aldea"></param>
 /// <param name="Nombre"></param>
-/// <param name="AñoGraduacion"></param>
+/// <param name="Edad"></param>
 /// <param name="NivelControlBestia"></param>
 /// <param name="Bestia"></param>
 /// <param name="ColasManifestadas"></param>
 public record Jinchuriki(
-    int ID,
+    int Id,
     string DniNinja,
     AldeaNinja Aldea, 
     string Nombre, 
-    int AñoGraduacion, 
+    int Edad,
+    DateTime CreateAt,
+    DateTime UpdateAt,
+    bool IsDeleted,
     double NivelControlBestia, 
     NombreBestia Bestia, // <--- Enum
     int ColasManifestadas
-) : Shinobi(ID, DniNinja, Nombre, Aldea, AñoGraduacion);
+) : Shinobi(Id, DniNinja, Nombre, Aldea, Edad, CreateAt, UpdateAt, IsDeleted);

@@ -9,7 +9,7 @@ namespace SistemaGestiónNarutoWorld.Models;
 /// <param name="DniNinja"></param>
 /// <param name="Aldea"></param>
 /// <param name="Nombre"></param>
-/// <param name="AñoGraduacion"></param>
+/// <param name="Edad"></param>
 /// <param name="ElementoPrincipal"></param>
 /// <param name="tieneKekkeiGenkai"></param>
 public record ShinobiElite(
@@ -17,7 +17,10 @@ public record ShinobiElite(
     string DniNinja, 
     AldeaNinja Aldea, 
     string Nombre, 
-    int AñoGraduacion,
+    int Edad,
+    DateTime CreateAt,
+    DateTime UpdateAt,
+    bool IsDeleted,
     ElementoNinja ElementoPrincipal,
-    bool tieneKekkeiGenkai
-) : Shinobi(Id, DniNinja, Nombre, Aldea, AñoGraduacion);
+    bool TieneKekkeiGenkai
+) : Shinobi(Id, DniNinja, Nombre, Aldea, Edad, CreateAt, UpdateAt, IsDeleted);

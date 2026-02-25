@@ -8,7 +8,7 @@ namespace SistemaGestiónNarutoWorld.Models;
 /// <param name="DniNinja"></param>
 /// <param name="Aldea"></param>
 /// <param name="Nombre"></param>
-/// <param name="AñoGraduacion"></param>
+/// <param name="Edad"></param>
 /// <param name="VelocidadDesplazamiento"></param>
 /// <param name="Metodo"></param>
 /// <param name="RangoDeteccionKm"></param>
@@ -17,8 +17,11 @@ public record ShinobiRastreador(
     string DniNinja,
     AldeaNinja Aldea, 
     string Nombre, 
-    int AñoGraduacion, 
+    int Edad,
+    DateTime CreateAt,
+    DateTime UpdateAt,
+    bool IsDeleted,
     int VelocidadDesplazamiento,
     MetodoRastreo Metodo, // <--- Enum
     int RangoDeteccionKm
-) : Shinobi(Id, DniNinja, Nombre, Aldea, AñoGraduacion);
+) : Shinobi(Id, DniNinja, Nombre, Aldea, Edad, CreateAt, UpdateAt, IsDeleted);
