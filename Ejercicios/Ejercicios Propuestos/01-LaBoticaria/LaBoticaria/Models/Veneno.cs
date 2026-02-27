@@ -2,7 +2,7 @@
 
 namespace LaBoticaria;
 
-public record Veneno(
+public sealed record Veneno(
     int Id,
     string Nombre,
     string Descripcion,
@@ -14,7 +14,7 @@ public record Veneno(
     bool IsDeleted,
     ViaAdministracion Suministro,
     int TiempoAparicion,
-    string Antidoto,
+    List<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaSintomas,
     double GradoToxicidad,
-    int ProbrobalidadSupevivencia
-): Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted);
+    int ProbalidadSupevivencia
+): Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted), ITieneSintomas;

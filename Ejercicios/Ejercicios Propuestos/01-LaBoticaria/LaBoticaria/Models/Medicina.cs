@@ -2,7 +2,7 @@
 
 namespace LaBoticaria;
 
-public record Medicina(
+public sealed record Medicina(
     int Id,
     string Nombre,
     string Descripcion,
@@ -12,8 +12,8 @@ public record Medicina(
     DateTime CreateAt,
     DateTime UpdateAt,
     bool IsDeleted,
-    string Sintomas,
+    List<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaSintomas,
     int DosisRecomendada,
-    string EfectosSecundarios,
+    List<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaEfectosSecundarios,
     int TiempoEfecto
-) : Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted);
+) : Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted), ITieneSintomas;
