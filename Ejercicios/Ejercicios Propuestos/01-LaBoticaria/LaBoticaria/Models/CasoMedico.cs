@@ -3,7 +3,7 @@
 namespace LaBoticaria;
 
 public class CasoMedico {
-    public int Id { get; set; }
+    public int Id { get; set; } = IdCounter.NextId();
     public List<(string Nombre, int Riesgo, string Organo, string Descripcion)>  SintomasObservados { get; set; }
     public DateTime FechaInicio { get; set; }
     public CausaSospecha Causa { get; set; }

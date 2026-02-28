@@ -18,6 +18,7 @@ public class SustanciaRespository : ISustanciaRepository{
     
     
     
+    
     /// <inheritdoc cref="ISustanciaReposity.GetAll"/>
     public IEnumerable<Sustancia> GetAll() {
         _logger.Debug("Obtenemos a todas las sustancias");
@@ -33,21 +34,29 @@ public class SustanciaRespository : ISustanciaRepository{
     public Sustancia? Create(Sustancia entity) {
         _logger.Debug("Creando una nueva sustancia {entity}", entity);
         
-        
-
+        if (_porId.ContainsKey(entity.Id)) return null;
         var nuevaSustancia = entity with {
-            Id = ++_idCounter,
+            
             CreateAt = DateTime.UtcNow,
             UpdateAt = DateTime.UtcNow,
             IsDeleted = false
         };
         
-        _porId[entity.Id] = nuevaSustancia;
+        _porId.Add(entity.Id, nuevaSustancia);
         return nuevaSustancia;
     }
 
     public Sustancia? Update(int id, Sustancia entity) {
-        throw new NotImplementedException();
+
+        if (_porId.ContainsKey(entity.Id)) return null;
+
+        var sustanciaActualizada = entity with {
+            UpdateAt = DateTime.UtcNow,
+            IsDeleted = false
+        };
+        
+        _porId.Add(entity.Id, sustanciaActualizada);
+        return sustanciaActualizada;
     }
 
     public Sustancia? Delete(int id) {
