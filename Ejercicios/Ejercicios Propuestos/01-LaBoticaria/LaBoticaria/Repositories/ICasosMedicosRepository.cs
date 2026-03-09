@@ -2,4 +2,4 @@
 
 namespace LaBoticaria.Repositories;
 
-public interface ISustanciaRepository : ICrudRepository<int, Sustancia>;
+public interface ICasosMedicosRepository : ICrudRepository<int, CasoMedico>;

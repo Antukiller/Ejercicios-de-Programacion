@@ -36,7 +36,7 @@ public class SustanciaRespository : ISustanciaRepository{
         
         if (_porId.ContainsKey(entity.Id)) return null;
         var nuevaSustancia = entity with {
-            
+            Id = ++_idCounter,
             CreateAt = DateTime.UtcNow,
             UpdateAt = DateTime.UtcNow,
             IsDeleted = false
@@ -47,10 +47,12 @@ public class SustanciaRespository : ISustanciaRepository{
     }
 
     public Sustancia? Update(int id, Sustancia entity) {
-
-        if (_porId.ContainsKey(entity.Id)) return null;
+        _logger.Debug("Actualizando una nueva sustancia con id {Id} y datos {entity}", id, entity);
+        if (!_porId.TryGetValue(id, out var value)) return null;
 
         var sustanciaActualizada = entity with {
+            Id = id,
+            CreateAt = value.CreateAt,
             UpdateAt = DateTime.UtcNow,
             IsDeleted = false
         };
@@ -59,7 +61,16 @@ public class SustanciaRespository : ISustanciaRepository{
         return sustanciaActualizada;
     }
 
-    public Sustancia? Delete(int id) {
-        throw new NotImplementedException();
+    public Sustancia? Delete(int id, Sustancia entity) {
+        _logger.Debug("Eliminando sustancia con Id {id}" );
+
+        if (!_porId.TryGetValue(id, out var value)) return null;
+
+        var sustanciaEliminada = entity with {
+            UpdateAt = value.UpdateAt,
+            IsDeleted = true
+        };
+
+        return sustanciaEliminada;
     }
 }

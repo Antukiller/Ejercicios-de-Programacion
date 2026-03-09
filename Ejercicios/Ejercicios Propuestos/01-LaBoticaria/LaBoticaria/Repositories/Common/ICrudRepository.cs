@@ -40,7 +40,7 @@ public interface ICrudRepository<TKey, TEntity> where TEntity : class{
     /// </summary>
     /// <param name="id">Clave de la entidad para eliminar</param>
     /// <returns>La entidad eliminada o null si no existe</returns>
-    TEntity? Delete(TKey id);
+    TEntity? Delete(TKey id, TEntity entity);
     
     
 }

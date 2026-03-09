@@ -12,8 +12,8 @@ public sealed record Medicina(
     DateTime CreateAt,
     DateTime UpdateAt,
     bool IsDeleted,
-    List<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaSintomas,
+    IEnumerable<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaSintomas,
     int DosisRecomendada,
-    List<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaEfectosSecundarios,
+    IEnumerable<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaEfectosSecundarios,
     int TiempoEfecto
 ) : Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted), ITieneSintomas;
