@@ -3,7 +3,8 @@
 namespace LaBoticaria;
 
 public record class CasoMedico(
-    int Id, 
+    int Id,
+    string Nombre,
     IEnumerable<(string Nombre, int Riesgo, string Organo, string Descripcion)>  SintomasObservados,
     DateTime FechaInicio,
     CausaSospecha Causa,

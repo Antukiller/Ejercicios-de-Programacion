@@ -12,7 +12,7 @@ public interface IServiceGeneric {
     Sustancia GetByIdSustancia(int id); // Añadido ?
     Sustancia SaveSustancia(Sustancia sustancia);
     Sustancia UpdateSustancia(int id, Sustancia sustancia); // Añadido ?
-    Sustancia DeleteSustancia(int id); // Añadido ?
+    Sustancia DeleteSustancia(int id, Sustancia sustancia); // Añadido ?
     InformeSustancias GenerarInformeSustancias();
 
     // --- MÉTODOS PARA CASOS MÉDICOS ---
@@ -20,6 +20,6 @@ public interface IServiceGeneric {
     CasoMedico GetByIdCasoMedico(int id); // Añadido ?
     CasoMedico SaveCasoMedico(CasoMedico casoMedico);
     CasoMedico UpdateCasoMedico(int id, CasoMedico casoMedico); // Añadido ?
-    CasoMedico DeleteCasoMedico(int id); // Añadido ?
+    CasoMedico DeleteCasoMedico(int id, CasoMedico casoMedico); // Añadido ?
     InformeCasosMedicos GenerarInformeCasosMedicos(); // Cambiado a plural para ser iguales
 }

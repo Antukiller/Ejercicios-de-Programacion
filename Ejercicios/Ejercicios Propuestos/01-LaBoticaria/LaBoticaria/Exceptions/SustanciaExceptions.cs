@@ -17,7 +17,7 @@ public abstract class SustanciaException(string message) : DomainException(messa
         public IEnumerable<string> Errores { get; init; } = errors;
     }
 
-    /// <summary>Se lanza ante conflictos de duplicidad (DNI).</summary>
-    public sealed class AlreadyExists(string dni)
-        : SustanciaException($"Conflicto de integridad: El DNI {dni} ya está registrado en el sistema.");
+    /// <summary>Se lanza cuando el nombre de la sustancia ya existe.</summary>
+    public sealed class AlreadyExists(string nombre)
+        : SustanciaException($"Conflicto de integridad: La sustancia con nombre '{nombre}' ya está registrada.");
 }

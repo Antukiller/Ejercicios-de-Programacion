@@ -16,8 +16,7 @@ public abstract class CasoMedicoException(string message) : DomainException(mess
         : CasoMedicoException("Se han detectado errores de validación en la entidad.") {
         public IEnumerable<string> Errores { get; init; } = errors;
     }
-
-    /// <summary>Se lanza ante conflictos de duplicidad (DNI).</summary>
-    public sealed class AlreadyExists(string dni)
-        : CasoMedicoException($"Conflicto de integridad: El DNI {dni} ya está registrado en el sistema.");
+    
+    public sealed class AlreadyExists(string nombre)
+        : CasoMedicoException($"Conflicto de integridad: EL caso medico con nombre '{nombre}' ya está registrada.");
 }

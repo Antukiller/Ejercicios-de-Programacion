@@ -1,25 +1,24 @@
-﻿namespace LaBoticaria;
+﻿using LaBoticaria.Enums;
 
-/// <summary>
-/// Contiene datos consolidados sobre el inventario de sustancias de la boticaria.
-/// </summary>
+namespace LaBoticaria;
+
 public sealed record InformeSustancias {
-    /// <summary>
-    /// Listado de todas las sustancias (sin incluir las borradas lógicamente).
-    /// </summary>
     public IEnumerable<Sustancia> ListadoActivo { get; init; } = Enumerable.Empty<Sustancia>();
-
+    
+    // Propiedades calculadas
     public int TotalSustancias => ListadoActivo.Count();
-
-    // Estadísticas por tipo (Nivel DAW: usando el tipo de clase)
+    
+    // Totales por tipo (se llenarán en el Service)
     public int TotalMedicinas { get; init; }
     public int TotalVenenos { get; init; }
     public int TotalAfrodisiacos { get; init; }
 
-    /// <summary>
-    /// Porcentaje de venenos respecto al total (para control de seguridad en el palacio).
-    /// </summary>
-    public double PorcentajePeligrosidad => TotalSustancias > 0 
-        ? (double)TotalVenenos / TotalSustancias * 100 
+    // Estadísticas basadas en tus campos de Sustancia
+    public double PrecioMedio { get; init; }
+    public double PrecioMaximo { get; init; }
+    
+    // Porcentaje de sustancias de Peligro Alto/Extremo
+    public double IndiceRiesgoTotal => TotalSustancias > 0 
+        ? (double)ListadoActivo.Count(s => s.Peligro >= NivelPeligro.Alto) / TotalSustancias * 100 
         : 0;
 }
