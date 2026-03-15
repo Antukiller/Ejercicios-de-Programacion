@@ -1,6 +1,6 @@
 ﻿namespace LaBoticaria;
 
-public static class Antidotos 
+public static class AntidotosConocidos 
 {
     public static readonly (string Nombre, int Efectividad, string Metodo, string Descripcion)
         CarbonActivado = ("Carbón Activado", 8, "Ingestión", "Absorbe toxinas en el tracto digestivo antes de que pasen a la sangre");

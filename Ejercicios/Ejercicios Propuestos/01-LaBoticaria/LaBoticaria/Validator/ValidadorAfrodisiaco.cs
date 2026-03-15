@@ -63,6 +63,9 @@ public class ValidadorAfrodisiaco : IValidador<Sustancia> {
 
                 if (string.IsNullOrWhiteSpace(riesgo.Descripcion))
                     errores.Add($"El riesgo '{riesgo.Nombre}' requiere una descripción del efecto");
+                
+                if (string.IsNullOrWhiteSpace(riesgo.Organo))
+                    errores.Add("EL organo no esta resgistrado");
             }
         }
 

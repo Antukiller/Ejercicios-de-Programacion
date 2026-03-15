@@ -16,5 +16,6 @@ public sealed record Veneno(
     int TiempoAparicion,
     IEnumerable<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaSintomas,
     double GradoToxicidad,
-    int ProbalidadSupevivencia
+    int ProbalidadSupevivencia,
+    IEnumerable<(string Nombre, int Efectividad, string Metodo, string Descripcion)> ListaAntidotos
 ): Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted), ITieneSintomas;

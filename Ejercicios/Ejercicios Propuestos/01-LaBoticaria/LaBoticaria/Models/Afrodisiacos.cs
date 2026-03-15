@@ -14,7 +14,7 @@ public sealed record Afrodisiacos(
     bool IsDeleted,
     IntensidadEfecto CategoriaEfecto,
     int Duracion,
-    List<(string Nombre, int Riesgo, string Descripcion)> ListaContradicciones,
-    List<(string Nombre, int Riesgo, string Descripcion)> ListaRiesgosExcivos
+    IEnumerable<(string Nombre, int Riesgo, string Descripcion)> ListaContradicciones,
+    IEnumerable<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaRiesgosExcivos
 ) : Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted);
         
