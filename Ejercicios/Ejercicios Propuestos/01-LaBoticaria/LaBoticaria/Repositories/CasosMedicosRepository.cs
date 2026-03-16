@@ -31,18 +31,27 @@ public class CasosMedicosRepository : ICasosMedicosRepository {
     }
 
     public CasoMedico? Create(CasoMedico entity) {
-        _logger.Debug("Creando un caso medico {entity}", entity);
+        _logger.Debug("Iniciando creación de caso médico. Generando ID interno...");
 
-        if (_porId.ContainsKey(entity.Id)) return null;
-
+        // 1. Generamos el nuevo objeto. 
+        // Ignoramos entity.Id por completo y usamos nuestro contador.
         var nuevoCasoMedico = entity with {
             Id = ++_idCounter,
-            CreateAt = DateTime.UtcNow,
-            UpdateAt = DateTime.UtcNow,
+            CreateAt = DateTime.Now,
+            UpdateAt = DateTime.Now,
             IsDeleted = false
         };
 
-        return nuevoCasoMedico;
+        // 2. Usamos el ID RECIÉN GENERADO como llave del diccionario.
+        // TryAdd es más seguro: si por algún error el contador fallara, no lanza excepción.
+        if (_porId.TryAdd(nuevoCasoMedico.Id, nuevoCasoMedico)) 
+        {
+            _logger.Information("Caso médico creado exitosamente con ID {id}", nuevoCasoMedico.Id);
+            return nuevoCasoMedico;
+        }
+
+        _logger.Error("Error crítico: El ID generado {id} ya existe en el diccionario.", nuevoCasoMedico.Id);
+        return null;
     }
 
     public CasoMedico? Update(int id, CasoMedico entity) {
@@ -55,6 +64,8 @@ public class CasosMedicosRepository : ICasosMedicosRepository {
             UpdateAt = DateTime.UtcNow,
             IsDeleted = false
         };
+        
+        _porId[id] = casoMedicoActualizado;
 
         return casoMedicoActualizado;
     }
@@ -68,6 +79,8 @@ public class CasosMedicosRepository : ICasosMedicosRepository {
             UpdateAt = medico.UpdateAt,
             IsDeleted = true
         };
+        
+        _porId[id] = casoMedicoEliminado;
 
         return casoMedicoEliminado;
     }

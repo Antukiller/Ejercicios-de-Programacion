@@ -32,20 +32,23 @@ public class SustanciaRespository : ISustanciaRepository{
     }
 
     public Sustancia? Create(Sustancia entity) {
-        _logger.Debug("Creando una nueva sustancia {entity}", entity);
-        
-        if (_porId.ContainsKey(entity.Id)) return null;
+        _logger.Debug("Creando una nueva sustancia");
+
+        // Generamos la instancia con el ID gestionado por el repositorio
         var nuevaSustancia = entity with {
             Id = ++_idCounter,
-            CreateAt = DateTime.UtcNow,
-            UpdateAt = DateTime.UtcNow,
+            CreateAt = DateTime.Now,
+            UpdateAt = DateTime.Now,
             IsDeleted = false
         };
-        
-        _porId.Add(entity.Id, nuevaSustancia);
-        return nuevaSustancia;
+    
+        // USAR el nuevo ID como llave, no entity.Id
+        if (_porId.TryAdd(nuevaSustancia.Id, nuevaSustancia)) {
+            return nuevaSustancia;
+        }
+    
+        return null;
     }
-
     public Sustancia? Update(int id, Sustancia entity) {
         _logger.Debug("Actualizando una nueva sustancia con id {Id} y datos {entity}", id, entity);
         if (!_porId.TryGetValue(id, out var value)) return null;
@@ -70,6 +73,8 @@ public class SustanciaRespository : ISustanciaRepository{
             UpdateAt = value.UpdateAt,
             IsDeleted = true
         };
+        
+        _porId[id] = sustanciaEliminada;
 
         return sustanciaEliminada;
     }

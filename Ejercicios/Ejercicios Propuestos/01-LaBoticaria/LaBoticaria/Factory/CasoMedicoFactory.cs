@@ -1,7 +1,4 @@
 ﻿using LaBoticaria.Enums;
-
-namespace LaBoticaria.Factory;
-
 using LaBoticaria.Enums;
 
 namespace LaBoticaria;
@@ -10,39 +7,44 @@ public static class CasoMedicoFactory
 {
     public static List<CasoMedico> GetSeedCasosMedicos() => new() 
     {
-        // --- Casos de Gravedad Leve ---
-        new (1, "El Eunuco Agotado", new[] { Sintomas.Inapetencia }, CausaSospecha.Fatiga, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now),
-        new (2, "Alergia Estacional", new[] { Sintomas.PruritoIntenso }, CausaSospecha.Entorno, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now),
-        new (3, "Zumbido tras el Festival", new[] { Sintomas.Tinnitus }, CausaSospecha.Accidentado, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now),
-        new (4, "Resfriado del Pabellón Verde", new[] { Sintomas.FiebreMiliar }, CausaSospecha.Entorno, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now),
-        new (5, "Malestar por Comida Picante", new[] { Sintomas.Inapetencia }, CausaSospecha.Dieta, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now),
-
-        // --- Casos de Gravedad Media ---
-        new (6, "El Guardia Mareado", new[] { Sintomas.Sincope, Sintomas.Parestesia }, CausaSospecha.Agotamiento, EstadoInvestigacion.EnCurso, Gravedad.Media, DateTime.Now),
-        new (7, "Visión Borrosa del Bibliotecario", new[] { Sintomas.Midriasis }, CausaSospecha.SustanciaDesconocida, EstadoInvestigacion.EnCurso, Gravedad.Media, DateTime.Now),
-        new (8, "Retención de Líquidos Sospechosa", new[] { Sintomas.EdemaRenal }, CausaSospecha.Enfermedad, EstadoInvestigacion.EnCurso, Gravedad.Media, DateTime.Now),
-        new (9, "Dificultad Respiratoria en Invierno", new[] { Sintomas.Disnea }, CausaSospecha.Entorno, EstadoInvestigacion.Cerrado, Gravedad.Media, DateTime.Now),
-        new (10, "El Mensajero Exhausto", new[] { Sintomas.Sincope, Sintomas.Inapetencia }, CausaSospecha.Agotamiento, EstadoInvestigacion.Cerrado, Gravedad.Media, DateTime.Now),
-
-        // --- Casos de Gravedad Alta (Sospecha de Envenenamiento) ---
-        new (11, "La Dama de Honor Amarilla", new[] { Sintomas.IctericiaBiliar, Sintomas.Melena }, CausaSospecha.Veneno, EstadoInvestigacion.BajoVigilancia, Gravedad.Grave, DateTime.Now),
-        new (12, "El Poeta Mudo", new[] { Sintomas.AfasiaTemporal, Sintomas.Tinnitus }, CausaSospecha.SustanciaDesconocida, EstadoInvestigacion.BajoVigilancia, Gravedad.Alta, DateTime.Now),
-        new (13, "Tos Carmesí", new[] { Sintomas.Hemoptisis, Sintomas.Disnea }, CausaSospecha.Enfermedad, EstadoInvestigacion.EnCurso, Gravedad.Alta, DateTime.Now),
-        new (14, "Pupilas de Cristal", new[] { Sintomas.Midriasis, Sintomas.Sincope }, CausaSospecha.Veneno, EstadoInvestigacion.BajoVigilancia, Gravedad.Alta, DateTime.Now),
-        new (15, "El Banquete Manchado", new[] { Sintomas.Melena, Sintomas.Inapetencia }, CausaSospecha.Veneno, EstadoInvestigacion.BajoVigilancia, Gravedad.Alta, DateTime.Now),
-
-        // --- Casos de Gravedad Crítica ---
-        new (16, "Cianosis en el Té Real", new[] { Sintomas.Cianosis, Sintomas.Sincope }, CausaSospecha.IntentoAsesinato, EstadoInvestigacion.Urgente, Gravedad.Critica, DateTime.Now),
-        new (17, "El Colapso del Ministro", new[] { Sintomas.ArritmiaSevera, Sintomas.Cianosis }, CausaSospecha.Veneno, EstadoInvestigacion.Urgente, Gravedad.Critica, DateTime.Now),
-        new (18, "Sangre en el Pabellón de Jade", new[] { Sintomas.Hemoptisis, Sintomas.Melena }, CausaSospecha.IntentoAsesinato, EstadoInvestigacion.Urgente, Gravedad.Critica, DateTime.Now),
-        new (19, "Parálisis del Gran Eunuco", new[] { Sintomas.Parestesia, Sintomas.Disnea }, CausaSospecha.Veneno, EstadoInvestigacion.Urgente, Gravedad.Critica, DateTime.Now),
-        new (20, "Delirio de la Consorte", new[] { Sintomas.AfasiaTemporal, Sintomas.Midriasis }, CausaSospecha.SustanciaDesconocida, EstadoInvestigacion.Urgente, Gravedad.Critica, DateTime.Now),
-
-        // --- Casos de Investigación Especial ---
-        new (21, "Incidente del Polvo de Plomo", new[] { Sintomas.EdemaRenal, Sintomas.Inapetencia }, CausaSospecha.Cosmeticos, EstadoInvestigacion.EnCurso, Gravedad.Media, DateTime.Now),
-        new (22, "Sudor Frío Misterioso", new[] { Sintomas.FiebreMiliar, Sintomas.ArritmiaSevera }, CausaSospecha.SustanciaDesconocida, EstadoInvestigacion.EnCurso, Gravedad.Alta, DateTime.Now),
-        new (23, "Alucinaciones en el Jardín", new[] { Sintomas.AfasiaTemporal, Sintomas.Sincope }, CausaSospecha.Entorno, EstadoInvestigacion.EnCurso, Gravedad.Media, DateTime.Now),
-        new (24, "El Catador Caído", new[] { Sintomas.Cianosis, Sintomas.Melena }, CausaSospecha.Veneno, EstadoInvestigacion.Urgente, Gravedad.Critica, DateTime.Now),
-        new (25, "Sospecha de Maomao", new[] { Sintomas.Parestesia, Sintomas.Tinnitus }, CausaSospecha.Autoexperimentacion, EstadoInvestigacion.Cerrado, Gravedad.Baja, DateTime.Now)
+        new (1, "El Eunuco Agotado", new[] { Sintomas.Inapetencia }, new DateTime(2026, 01, 12), CausaSospecha.Enfermedad, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now, DateTime.Now, false),
+        
+        new (2, "La Dama del Té", new[] { Sintomas.Cianosis, Sintomas.Sincope }, new DateTime(2026, 02, 05), CausaSospecha.Veneno, EstadoInvestigacion.Investigando, Gravedad.Grave, DateTime.Now, DateTime.Now, false),
+        
+        new (3, "El Guardia Aturdido", new[] { Sintomas.Tinnitus, Sintomas.Parestesia }, new DateTime(2026, 02, 10), CausaSospecha.Desconocido, EstadoInvestigacion.Abierto, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (4, "Resfriado del Pabellón", new[] { Sintomas.FiebreMiliar }, new DateTime(2026, 01, 20), CausaSospecha.Enfermedad, EstadoInvestigacion.Resuelto, Gravedad.Leve, DateTime.Now, DateTime.Now, false),
+        
+        new (5, "El Banquete de Otoño", new[] { Sintomas.Melena, Sintomas.Inapetencia }, new DateTime(2026, 03, 01), CausaSospecha.Veneno, EstadoInvestigacion.Investigando, Gravedad.Grave, DateTime.Now, DateTime.Now, false),
+        
+        new (6, "Visión de Cristal", new[] { Sintomas.Midriasis }, new DateTime(2026, 02, 15), CausaSospecha.Desconocido, EstadoInvestigacion.Abierto, Gravedad.Leve, DateTime.Now, DateTime.Now, false),
+        
+        new (7, "El Poeta de la Corte", new[] { Sintomas.AfasiaTemporal }, new DateTime(2026, 03, 05), CausaSospecha.Enfermedad, EstadoInvestigacion.Investigando, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (8, "El Catador Real", new[] { Sintomas.ArritmiaSevera, Sintomas.Cianosis }, new DateTime(2026, 03, 10), CausaSospecha.Veneno, EstadoInvestigacion.Investigando, Gravedad.Grave, DateTime.Now, DateTime.Now, false),
+        
+        new (9, "Afección del Riñón", new[] { Sintomas.EdemaRenal }, new DateTime(2026, 01, 15), CausaSospecha.Enfermedad, EstadoInvestigacion.Cerrado, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (10, "Tos Carmesí", new[] { Sintomas.Hemoptisis, Sintomas.Disnea }, new DateTime(2026, 02, 28), CausaSospecha.Enfermedad, EstadoInvestigacion.Investigando, Gravedad.Grave, DateTime.Now, DateTime.Now, false),
+        
+        new (11, "Piel de Ictericia", new[] { Sintomas.IctericiaBiliar }, new DateTime(2026, 03, 12), CausaSospecha.Enfermedad, EstadoInvestigacion.Resuelto, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (12, "El Incidente del Loto", new[] { Sintomas.Sincope, Sintomas.Parestesia }, new DateTime(2026, 03, 14), CausaSospecha.Veneno, EstadoInvestigacion.Abierto, Gravedad.Grave, DateTime.Now, DateTime.Now, false),
+        
+        new (13, "Picor de la Concubina", new[] { Sintomas.PruritoIntenso, Sintomas.FiebreMiliar }, new DateTime(2026, 01, 05), CausaSospecha.Desconocido, EstadoInvestigacion.Cerrado, Gravedad.Leve, DateTime.Now, DateTime.Now, false),
+        
+        new (14, "El Mensajero Exhausto", new[] { Sintomas.Inapetencia, Sintomas.Sincope }, new DateTime(2026, 02, 20), CausaSospecha.Enfermedad, EstadoInvestigacion.Resuelto, Gravedad.Leve, DateTime.Now, DateTime.Now, false),
+        
+        new (15, "Dificultad Nocturna", new[] { Sintomas.Disnea }, new DateTime(2026, 02, 12), CausaSospecha.Enfermedad, EstadoInvestigacion.Cerrado, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (16, "Pupilas de Muñeca", new[] { Sintomas.Midriasis, Sintomas.AfasiaTemporal }, new DateTime(2026, 03, 08), CausaSospecha.Veneno, EstadoInvestigacion.Investigando, Gravedad.Grave, DateTime.Now, DateTime.Now, false),
+        
+        new (17, "Zumbido Metálico", new[] { Sintomas.Tinnitus }, new DateTime(2026, 01, 30), CausaSospecha.Desconocido, EstadoInvestigacion.Cerrado, Gravedad.Nula, DateTime.Now, DateTime.Now, false),
+        
+        new (18, "Heces Oscuras", new[] { Sintomas.Melena }, new DateTime(2026, 02, 22), CausaSospecha.Enfermedad, EstadoInvestigacion.Investigando, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (19, "Palpitaciones en el Jardín", new[] { Sintomas.ArritmiaSevera }, new DateTime(2026, 03, 02), CausaSospecha.Desconocido, EstadoInvestigacion.Abierto, Gravedad.Moderada, DateTime.Now, DateTime.Now, false),
+        
+        new (20, "El Caso de Maomao", new[] { Sintomas.Parestesia }, new DateTime(2026, 03, 15), CausaSospecha.Desconocido, EstadoInvestigacion.Abierto, Gravedad.Leve, DateTime.Now, DateTime.Now, false)
     };
 }
