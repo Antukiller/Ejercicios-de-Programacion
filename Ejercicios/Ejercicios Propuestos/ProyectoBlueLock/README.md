@@ -63,8 +63,13 @@ El sistema permite a Ego obtener información crítica mediante consultas rápid
 
 ---
 
+
 ## ⚠️ ÚLTIMA ADVERTENCIA
-> "¿Díganme... van a ser un simple error estadístico o la anomalía que el mundo no pueda ignorar? Entiendan esto: el talento es solo una entrada para el espectáculo, si no tienen el ego suficiente para adueñarse del escenario mejor quédense en la fila con el resto de los espectadores.
+
+> [!WARNING]
+> ### "¿Díganme... van a ser un simple error estadístico o la anomalía que el mundo no pueda ignorar?"
+> Entiendan esto: el talento es solo una entrada para el espectáculo, si no tienen el ego suficiente para adueñarse del escenario mejor quédense en la fila con el resto de los espectadores.
 >
-> El progreso no es para todos, alguien tiene que quedarse sentado aplaudiendo. ¿Quieres ser el que aplaude? Quédate sentado. Después de todo, necesitamos mediocres como tú para alimentar el ego de mis diamantes en bruto. Lock Off"
-> — **Jinpachi Ego**
+> El progreso no es para todos, alguien tiene que quedarse sentado aplaudiendo. ¿Quieres ser el que aplaude? Quédate sentado. Después de todo, necesitamos mediocres como tú para alimentar el ego de mis diamantes en bruto. **Lock Off.**
+>
+> — ***Jinpachi Ego***
