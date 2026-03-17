@@ -33,6 +33,8 @@ public class SustanciaRespository : ISustanciaRepository{
 
     public Sustancia? Create(Sustancia entity) {
         _logger.Debug("Creando una nueva sustancia");
+        
+        
 
         // Generamos la instancia con el ID gestionado por el repositorio
         var nuevaSustancia = entity with {
