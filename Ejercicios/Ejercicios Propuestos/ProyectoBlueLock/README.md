@@ -35,6 +35,12 @@ El corazón del sistema es el **Jugador**. El software permite clasificar a los 
 
 ---
 
+
+> [!CAUTION]
+> "Mírame bien, plebeyo. Aquí solo hay un Rey, y el resto solo son actores secundarios en mi camino al trono."
+> — ***Shouei Barou***
+
+
 ## 📊 2. LOGICA DE PARTIDOS Y SELECCIÓN
 
 El sistema no solo guarda nombres, gestiona el **destino** de los jugadores basándose en su rendimiento en los partidos:
@@ -43,6 +49,10 @@ El sistema no solo guarda nombres, gestiona el **destino** de los jugadores bas�
 * **Criterio de Eliminación:** Función lógica que marca a los jugadores como "Eliminados" si no cumplen con los objetivos de Ego marcados por la dirección.
 
 ---
+
+> [!CAUTION]
+> "Para mí, el campo es un campo de batalla, y solo el que está dispuesto a morir puede ganar."
+> — ***Itoshi Rin***
 
 ## 🔒 3. FUNCIONALIDADES DEL SOFTWARE
 
@@ -73,3 +83,4 @@ El sistema permite a Ego obtener información crítica mediante consultas rápid
 > El progreso no es para todos, alguien tiene que quedarse sentado aplaudiendo. ¿Quieres ser el que aplaude? Quédate sentado. Después de todo, necesitamos mediocres como tú para alimentar el ego de mis diamantes en bruto. **Lock Off.**
 >
 > — ***Jinpachi Ego***
+
