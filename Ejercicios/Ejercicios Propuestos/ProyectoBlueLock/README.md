@@ -45,7 +45,6 @@ El corazón del sistema es el **Jugador**. El software permite clasificar a los 
 
 El sistema no solo guarda nombres, gestiona el **destino** de los jugadores basándose en su rendimiento en los partidos:
 * **Registro de Resultados:** Goles, asistencias e intensidad de juego por cada jugador.
-* **Simulador de Evolución:** Tras un partido, el sistema permite actualizar el ranking del jugador y añadir nuevas habilidades a su ficha personal.
 * **Criterio de Eliminación:** Función lógica que marca a los jugadores como "Eliminados" si no cumplen con los objetivos de Ego marcados por la dirección.
 
 ---
