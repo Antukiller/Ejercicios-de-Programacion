@@ -10,21 +10,24 @@ public record SustanciaDto(
     [property: XmlAttribute("descripcion")] string Descripcion,
     [property: XmlAttribute("precio")] int Precio,
     [property: XmlAttribute("disponibilidad")] string Disponibilidad,
-    [property: XmlAttribute("nivelpeligro")] string NivelPeligro,
-    [property: XmlAttribute("listaSintomas")] string? listaSintomasMedicina,
-    [property: XmlAttribute("dosisRecomendad")] int? dosisRecomendada,
-    [property: XmlAttribute("listaEfectosSecundarios")] string? listaEfectosSecundarios,
-    [property: XmlAttribute("tiempoEfecto")] int? tiempoEfecto,
-    [property: XmlAttribute("viaAdministracion")] string? viaAdministracion,
+    [property: XmlAttribute("nivelPeligro")] string NivelPeligro,
+    [property: XmlAttribute("tipo")] string Tipo,
+    [property: XmlAttribute("listaSintomas")] string? ListaSintomasMedicina,
+    [property: XmlAttribute("dosisRecomendada")] int? DosisRecomendada,
+    [property: XmlAttribute("listaEfectosSecundarios")] string? ListaEfectosSecundarios,
+    [property: XmlAttribute("tiempoEfecto")] int? TiempoEfecto,
+    [property: XmlAttribute("viaAdministracion")] string? ViaAdministracion,
     [property: XmlAttribute("tiempoAparicion")] int? TiempoAparicion,
-    [property: XmlAttribute("listaSintomas")] string? listaSintomasVeneno,
-    [property: XmlAttribute("gradoToxicidad")] string? gradoToxicidad,
-    [property: XmlAttribute("probabilidadSupervivencia")] int? probabilidadSupervivencia,
-    [property: XmlAttribute("intensidadEfecto")] string? intensidadEfecto,
-    [property: XmlAttribute("duracion")]
+    [property: XmlAttribute("listaSintomas")] string? ListaSintomasVeneno,
+    [property: XmlAttribute("gradoToxicidad")] string? GradoToxicidad,
+    [property: XmlAttribute("probabilidadSupervivencia")] int? ProbabilidadSupervivencia,
+    [property: XmlAttribute("intensidadEfecto")] string? IntensidadEfecto,
+    [property: XmlAttribute("duracion")] int?  Duracion,
+    [property: XmlAttribute("listaContradiciones")] string? ListaContradiciones,
+    [property: XmlAttribute("listaRiesgos")] string? ListaRiesgos,
     [property: XmlAttribute("createAt")] string CreateAt,
     [property: XmlAttribute("updateAt")] string UpdateAt,
     [property: XmlAttribute("isDeleted")] bool IsDeleted
 ) {
-    public SustanciaDto(0, "", "", )
+    public SustanciaDto() : this(0, "", "", 0, "", "", "", null, null, null, null, null, null, null, null, null, null, null, null, null, "", "", false) { }
 }

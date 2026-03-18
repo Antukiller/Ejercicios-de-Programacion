@@ -7,8 +7,8 @@ public sealed record Medicina(
     string Nombre,
     string Descripcion,
     int Precio,
-    Disponibilidad Rareza,
-    NivelPeligro Peligro,
+    Disponibilidad Disponibilidad,
+    NivelPeligro NivelPeligro,
     DateTime CreateAt,
     DateTime UpdateAt,
     bool IsDeleted,
@@ -16,4 +16,4 @@ public sealed record Medicina(
     int DosisRecomendada,
     IEnumerable<(string Nombre, int Riesgo, string Organo, string Descripcion)> ListaEfectosSecundarios,
     int TiempoEfecto
-) : Sustancia(Id, Nombre, Descripcion, Precio, Rareza, Peligro, CreateAt, UpdateAt, IsDeleted), ITieneSintomas;
+) : Sustancia(Id, Nombre, Descripcion, Precio, Disponibilidad, NivelPeligro, CreateAt, UpdateAt, IsDeleted), ITieneSintomas;

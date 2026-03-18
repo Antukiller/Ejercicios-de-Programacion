@@ -50,11 +50,11 @@ public class ValidadorAfrodisiaco : IValidador<Sustancia> {
         }
 
         // 4. Validación de Riesgos Excesivos (Por sobredosis)
-        if (a.ListaRiesgosExcivos == null || !a.ListaRiesgosExcivos.Any()) {
+        if (a.ListaRiesgos == null || !a.ListaRiesgos.Any()) {
             errores.Add("Debe registrar al menos un riesgo por exceso de consumo");
         }
         else {
-            foreach (var riesgo in a.ListaRiesgosExcivos) {
+            foreach (var riesgo in a.ListaRiesgos) {
                 if (string.IsNullOrWhiteSpace(riesgo.Nombre))
                     errores.Add("Uno de los riesgos excesivos no tiene nombre");
 
