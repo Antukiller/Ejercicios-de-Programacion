@@ -38,7 +38,7 @@ public static class Configuracion {
                 "json" => "json",
                 "xml" => "xml",
                 "csv" => "csv",
-                "bin" => "bin"
+                "bin" => "bin",
                 _ => "json"
             };
         }
