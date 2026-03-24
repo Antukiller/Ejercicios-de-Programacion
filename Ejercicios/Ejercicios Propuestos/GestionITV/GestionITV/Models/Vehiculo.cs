@@ -12,12 +12,13 @@ namespace GestionITV.Models;
 /// <param name="Motor"></param>
 /// <param name="DniPropietario"></param>
 public record Vehiculo(
+    int Id,
     string Matricula,
     string Marca,
     string Modelo,
     double Cilindrada,
     Motor Motor,
-    IEnumerable<string> DniPropietario,
+    string DniPropietario,
     DateTime CreateAt,
     DateTime UpdateAt,
     bool IsDeleted
