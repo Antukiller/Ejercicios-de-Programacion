@@ -54,7 +54,7 @@ public class ItvXmlStorage : IItvXmlStorage {
             using var stream =  File.OpenRead(path);
             var dtos = serializer.Deserialize(stream) as List<VehiculoDto>;
 
-            return dto?.Select(dto => dto.ToModel()) ??
+            return dtos?.Select(dto => dto.ToModel()) ??
                    throw new InvalidOperationException("No se pudieron deserializar los DTOs");
         }
         catch (Exception ex) {
