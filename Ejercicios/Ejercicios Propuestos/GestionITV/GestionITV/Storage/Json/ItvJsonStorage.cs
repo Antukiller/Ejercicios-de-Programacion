@@ -2,6 +2,8 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using GestionITV.Config;
+using GestionITV.Dto;
+using GestionITV.Mapper;
 using GestionITV.Models;
 using Serilog;
 

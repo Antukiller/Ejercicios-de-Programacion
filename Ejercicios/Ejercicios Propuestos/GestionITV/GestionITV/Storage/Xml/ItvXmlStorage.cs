@@ -2,6 +2,8 @@
 using System.Xml;
 using System.Xml.Serialization;
 using GestionITV.Config;
+using GestionITV.Dto;
+using GestionITV.Mapper;
 using GestionITV.Models;
 using Serilog;
 
