@@ -25,11 +25,24 @@ public abstract class BackupException(string message) : DomainException(message)
     
     
     /// <summary>
-    /// 
+    /// Se lanza cuando hay errores de al crear el archivo Zip de backup
     /// </summary>
     /// <param name="details"></param>
     public sealed class CreationError(string details)
         : BackupException($"Error al crear el backup: {details}.");
-    
+
+    /// <summary>
+    /// Se lanza cuando hay errores al restaurar desde un backup
+    /// </summary>
+    /// <param name="details"></param>
+    public sealed class RestorationError(string details)
+        : BackupException($"Error al restaura el backup: {details}");
+
+    /// <summary>
+    /// Se lanza cuando el directorio de backup no está disponible o no se puede crear
+    /// </summary>
+    /// <param name="details"></param>
+    public sealed class DirectoryError(string details)
+        : BackupException($"Error con el directorio de backup: {details}");
     
 }
