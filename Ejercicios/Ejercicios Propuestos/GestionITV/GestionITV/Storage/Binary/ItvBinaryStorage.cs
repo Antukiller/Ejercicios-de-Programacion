@@ -72,6 +72,6 @@ public class ItvBinaryStorage : IItvBinaryStorage {
         if (Directory.Exists(Configuracion.DataFolder))
             return;
         _logger.Debug("El directorio 'data' no existe. Creandolo...");
-        Directory.CreateDirectory(Configuracion.DataFolder)
+        Directory.CreateDirectory(Configuracion.DataFolder);
     }
 }

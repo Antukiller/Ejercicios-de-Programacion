@@ -11,15 +11,25 @@ namespace GestionITV.Models;
 /// <param name="Cilindrada"></param>
 /// <param name="Motor"></param>
 /// <param name="DniPropietario"></param>
-public record Vehiculo(
-    int Id,
-    string Matricula,
-    string Marca,
-    string Modelo,
-    double Cilindrada,
-    Motor Motor,
-    string DniPropietario,
-    DateTime CreateAt,
-    DateTime UpdateAt,
-    bool IsDeleted
-);
+public record Vehiculo {
+    public int Id { get; init; }
+    public string Matricula { get; init; }
+    public string Marca { get; init; }
+    public string Modelo { get; init; }
+    public double Cilindrada { get; init; }
+    public Motor Motor { get; init; }
+    public string DniPropietario { get; init; }
+    public DateTime CreateAt { get; init; }
+    public DateTime UpdateAt { get; init; }
+    public bool IsDeleted { get; init; }
+
+
+
+    public virtual bool Equals(Vehiculo? other) {
+        return other is not null && string.Equals(Matricula, other.Matricula, StringComparison.CurrentCultureIgnoreCase);
+    }
+
+    public override int GetHashCode() {
+        return HashCode.Combine(Matricula.ToLowerInvariant());
+    }
+}

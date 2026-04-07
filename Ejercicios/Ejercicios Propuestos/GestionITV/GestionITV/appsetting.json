@@ -3,7 +3,7 @@
     "Type": "Bin"
   },
   "Repository": {
-    "Type": "Binary",
+    "Type": "Memory",
     "Directory": "data"
   },
   

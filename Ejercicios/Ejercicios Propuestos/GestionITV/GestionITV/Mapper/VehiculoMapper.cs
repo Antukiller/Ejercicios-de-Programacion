@@ -16,23 +16,25 @@ public static class VehiculoMapper {
         var createdAt = DateTime.Parse(dto.CreatedAt, InvariantCulture);
         var updatedAt = DateTime.Parse(dto.UpdatedAt, InvariantCulture);
 
-        return new Vehiculo (
-            dto.Id,
-            dto.Matricula,
-            dto.Marca,
-            dto.Modelo,
-            dto.Cilindrada,
-            System.Enum.TryParse(dto.Motor, out Motor tipo ) ? tipo : Motor.Diesel ,
-            dto.DniPropietario,
-            createdAt,
-            updatedAt,
-            dto.IsDeleted
-        );
+        return new Vehiculo {
+            Id = dto.Id,
+            Matricula = dto.Matricula,
+            Marca = dto.Marca,
+            Modelo = dto.Modelo,
+            Cilindrada = dto.Cilindrada,
+            Motor = System.Enum.TryParse(dto.Motor, out Motor tipo) ? tipo : Motor.Diesel,
+            DniPropietario = dto.DniPropietario,
+            CreateAt = createdAt,
+            UpdateAt = updatedAt,
+            IsDeleted = dto.IsDeleted
+        }; // <-- Nota que aquí usamos llaves y asignaciones con '='
     }
 
 
     public static VehiculoDto ToDto(this Vehiculo vehiculo) {
-        return vehiculo(
+        // 1. Añadimos el 'new VehiculoDto'
+        // 2. Usamos el formato ISO que definiste arriba para las fechas
+        return new VehiculoDto(
             vehiculo.Id,
             vehiculo.Matricula,
             vehiculo.Marca,
@@ -40,8 +42,8 @@ public static class VehiculoMapper {
             vehiculo.Cilindrada,
             vehiculo.Motor.ToString(),
             vehiculo.DniPropietario,
-            vehiculo.CreateAt.ToString(),
-            vehiculo.UpdateAt.ToString(),
+            vehiculo.CreateAt.ToString(IsoFormat, InvariantCulture), // Usa tu constante IsoFormat
+            vehiculo.UpdateAt.ToString(IsoFormat, InvariantCulture),
             vehiculo.IsDeleted
         );
     }
