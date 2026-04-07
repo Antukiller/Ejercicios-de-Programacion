@@ -225,7 +225,72 @@ void Main() {
 
 
     void ActualizarVehiculo(IVehiculoService service) {
-        
+        WriteLine("\n➕ --- Actualización de Vehiculo ---");
+        WriteLine(" 0. ⬅️ Volver");
+
+        if (!PedirConfimacion("¿Desea dar de alta un nuevo vehiculo?")) {
+            WriteLine("👋 Operación cancelada");
+            return;
+        }
+
+        var dni = LeerCadenaValida();
+        try {
+            var v = service.GetByDniPropietario(dni);
+            if (v is not Vehiculo vehiculo) {
+                WriteLine("❌ ERROR: No es un Vehículo");
+                return;
+            }
+
+            ImprimirTablaVehículos(vehiculo);
+            var nMarca = LeerCadenaValida($"👤 Nombre [{vehiculo.Marca}] (Enter mant.): ",
+                @"^([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{2,30})?$",
+                "Error.");
+
+            var nModelo = LeerCadenaValida($"👤 Nombre [{vehiculo.Modelo}] (Enter mant.): ",
+                @"^([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{2,30})?$",
+                "Error.");
+            var nDniPropietario = PedirConfimacion("Desea cambiar el DNI del propietario del vehículos?")
+                ? LeerDniValidado()
+                : vehiculo.DniPropietario;
+
+            var nCilindrada = PedirConfimacion("¿Desea cambiar la cilindrada del vehiculo?")
+                ? LeerCilindradaValida()
+                : vehiculo.Cilindrada;
+
+            var nMartricula = PedirConfimacion("¿Desea cambiar la martricula del vehiculo?")
+                ? LeerMatriculaValida()
+                : vehiculo.Matricula;
+
+            var nMotor = PedirConfimacion("¿Desea cambiar el motor del vehiculo?")
+                ? LeerMotor()
+                : vehiculo.Motor;
+
+            var act = vehiculo with {
+                Marca = string.IsNullOrWhiteSpace(nMarca) ? vehiculo.Marca : nMarca,
+                Modelo = string.IsNullOrWhiteSpace(nModelo) ? vehiculo.Modelo : nModelo,
+                Matricula = string.IsNullOrWhiteSpace(nMartricula) ? vehiculo.Matricula : nMartricula,
+                DniPropietario = string.IsNullOrWhiteSpace(nDniPropietario) ? vehiculo.DniPropietario : nDniPropietario,
+                Motor = nMotor, Cilindrada = nCilindrada
+            };
+
+            WriteLine("\n👀 Revise los cambios efectuados y no toque nada ¡Simio!🙉");
+            ImprimirTablaVehículos(act);
+            if (PedirConfimacion("¿Actualizar?")) {
+                var actualizado = service.Update(vehiculo.Id, act);
+                WriteLine("✅ Actualizado correctamente");
+                ImprimirTablaVehículos(actualizado);
+            }
+        }
+        catch (VehiculoException.Validation ex) {
+            ImprimirErroresValidacion(ex.Errores);
+        }
+        catch (VehiculoException.NotFound ex) {
+            WriteLine($"❌ ERROR: {ex.Message}");
+        }
+        catch (Exception ex) {
+            WriteLine($"💀  ERROR DESCONOCIDO: {ex.Message}");
+        }
+
     }
     
 }

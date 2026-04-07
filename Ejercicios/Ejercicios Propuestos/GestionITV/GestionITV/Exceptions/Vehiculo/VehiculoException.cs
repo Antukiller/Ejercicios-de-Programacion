@@ -9,7 +9,7 @@ public abstract class VehiculoException(string message) : DomainException(messag
     /// </summary>
     /// <param name="id"></param>
     public sealed class NotFound(string id)
-        : VehiculoException($"No se ha encontrado ninguna persona con el iddentificado: {id}");
+        : VehiculoException($"No se ha encontrado ningun vehiculo con el iddentificado: {id}");
 
     
     /// <summary>
