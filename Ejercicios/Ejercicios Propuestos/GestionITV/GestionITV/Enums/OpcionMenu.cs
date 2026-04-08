@@ -17,12 +17,13 @@ public enum OpcionMenu {
     ActualizarVehiculo = 6,
     EliminarVehiculo = 7,
     InformeVehiculo = 8,
+    InformeIndivudial = 9,
     
     // Importar/Exportar
-    ImportarDatos = 9,
-    ExportarDatos = 10,
+    ImportarDatos = 10,
+    ExportarDatos = 11,
     
     // Backup 
-    RealizarBackup = 11,
-    RestaurarBackup = 12
+    RealizarBackup = 12,
+    RestaurarBackup = 13
 }

@@ -20,13 +20,13 @@ public static class Configuracion {
         // Esto permite cambiar el tipo de almacenamiento o la ruta sin recompliar el código.
         Config = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .Build();
     }
     
     
     /// <summary> Cultura/región para formatos (fechas/números). </summary>
-    public static CultureInfo Locale => CultureInfo.GetCultureInfo("es-Es");
+    //public static CultureInfo Locale => CultureInfo.GetCultureInfo("es-Es");
     
     public static string DataFolder => Path.Combine(Environment.CurrentDirectory, Config.GetValue<string>("Repository:Directory") ?? "data");
     

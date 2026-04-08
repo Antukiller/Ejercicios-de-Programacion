@@ -74,6 +74,8 @@ void Main() {
             case OpcionMenu.AnadirVehiculo: AnadirNuevoVehiculo(service); break;
             case OpcionMenu.ActualizarVehiculo: ActualizarVehiculo(service); break;
             case OpcionMenu.EliminarVehiculo: EliminarVehiculo(service); break;
+            case OpcionMenu.InformeVehiculo: MostrarInformeVehiculo(service); break;
+            case OpcionMenu.InformeIndivudial: MostrarInformeIndividual(service); break;
             case OpcionMenu.ImportarDatos: ImportarDatos(service); break;
             case OpcionMenu.ExportarDatos: ExportarDatos(service); break;
             case OpcionMenu.RealizarBackup: RealizarBackup(service); break;
@@ -98,21 +100,21 @@ void Main() {
         
         WriteLine("\n🚜 ---2. Gestión de los vehículos");
         WriteLine(new string('-', 80));
-        WriteLine($"{(int)OpcionMenu.ListarVehiculos}. 📜 Listar Vehiculo");
-        WriteLine($"{(int)OpcionMenu.AnadirVehiculo}. ➕ Añadir Vehiculo");
-        WriteLine($"{(int)OpcionMenu.ActualizarVehiculo}. 📝 Actualizar Vehiculo");
-        WriteLine($"{(int)OpcionMenu.EliminarVehiculo}. 🗑️ Eliminar Vehiculo");
-        WriteLine($"{(int)OpcionMenu.InformeVehiculo}. 📊 Informe los Vehiculos");
+        WriteLine($"    {(int)OpcionMenu.ListarVehiculos}. 📜 Listar Vehiculo");
+        WriteLine($"    {(int)OpcionMenu.AnadirVehiculo}. ➕ Añadir Vehiculo");
+        WriteLine($"    {(int)OpcionMenu.ActualizarVehiculo}. 📝 Actualizar Vehiculo");
+        WriteLine($"    {(int)OpcionMenu.EliminarVehiculo}. 🗑️ Eliminar Vehiculo");
+        WriteLine($"    {(int)OpcionMenu.InformeVehiculo}. 📊 Informe los Vehiculos");
         
         WriteLine("\n💾 --- 4. Importar/Exportar datos ---");
         WriteLine(new string('-', 80));
-        WriteLine($"{(int)OpcionMenu.ImportarDatos}. 📥 Importar los datos desde fichero.");
-        WriteLine($"{(int)OpcionMenu.ExportarDatos}. 📤 Exportar los datos a fichero.");
+        WriteLine($"    {(int)OpcionMenu.ImportarDatos}. 📥 Importar los datos desde fichero.");
+        WriteLine($"    {(int)OpcionMenu.ExportarDatos}. 📤 Exportar los datos a fichero.");
         
         WriteLine("\n📀 --- 5. Copias de seguridad ---");
         WriteLine(new string('-', 80));
-        WriteLine($"{(int)OpcionMenu.RealizarBackup}. 💾 Crear Backup");
-        WriteLine($"{(int)OpcionMenu.RestaurarBackup}. ♻️ Restaurar Backup");
+        WriteLine($"    {(int)OpcionMenu.RealizarBackup}. 💾 Crear Backup");
+        WriteLine($"    {(int)OpcionMenu.RestaurarBackup}. ♻️ Restaurar Backup");
         
         WriteLine("\n👋 ---0. Salir ---");
         WriteLine(new string('-', 80));
@@ -193,8 +195,8 @@ void Main() {
 
 
         var dni = LeerDniValidado();
-        var modelo = LeerCadenaValida();
-        var marca = LeerCadenaValida();
+        var modelo = LeerCadenaValida("Modelo: ", @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{2,30}$", "Mínimo 2 car.");
+        var marca = LeerCadenaValida("Marca: ", @"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{2,30}$", "Mínimo 2 car.");
         var motor = LeerMotor();
         var cilindrada = LeerCilindradaValida();
         var matricula = LeerMatriculaValida();
@@ -233,7 +235,7 @@ void Main() {
             return;
         }
 
-        var dni = LeerCadenaValida();
+        var dni = LeerDniValidado();
         try {
             var v = service.GetByDniPropietario(dni);
             if (v is not Vehiculo vehiculo) {
@@ -292,5 +294,268 @@ void Main() {
         }
 
     }
+
+    void EliminarVehiculo(IVehiculoService service) {
+        WriteLine("\n🚮 --- Eliminación del Vehículo ---");
+        var dni = LeerDniValidado();
+        try {
+            var v = service.GetByDniPropietario(dni);
+            foreach (var vehiculo in v) {
+                WriteLine("Analizando: {vehiculo.Marca} {vehiculo.Modelo} ({vehiculo.Matricula})");
+                if (PedirConfimacion("¿Desea eliminar este vehículo")) {
+                    service.Delete(vehiculo.Id);
+                    WriteLine("🚮 Vehiculo Eliminado correctamente");
+                    ImprimirTablaVehículos(vehiculo);
+                }
+            }
+            
+        }
+        catch (VehiculoException.NotFound ex) {
+            WriteLine($"❌ ERROR: {ex.Message}");
+        }
+        catch (Exception ex) {
+            WriteLine($"☠️ ERROR DESCONOCIDO: {ex.Message}");
+        }
+    }
+
+    void MostrarInformeVehiculo(IVehiculoService service) {
+        var informes = service.GenerarTodosInformeVehiculo(); 
+        WriteLine("\n📊 --- INFORME RESUMIDO DE VEHÍCULOS ---");
+        WriteLine(new string('-', 80));
+        foreach (var info in informes) {
+            WriteLine($"[{info.Id}] {info.MarcaModelo} - Matrícula: {info.Matricula}");
+            WriteLine($"    Motor: {info.DatosMotor} | Propietario: {info.PropietarioDni}");
+            WriteLine(new string('.', 80));
+        }
+    }
     
+    void MostrarInformeIndividual(IVehiculoService service) {
+        WriteLine("\n📊 --- CONSULTA DE INFORME TÉCNICO ---");
+    
+        // Pedimos el ID usando tu función de apoyo
+        var idStr = LeerCadenaValida("Introduzca el ID del vehículo: ", @"^\d+$", "Debe ser un número.");
+        int id = int.Parse(idStr);
+
+        try {
+            // Llamamos al servicio
+            var info = service.GenerarInformeVehiculPorId(id);
+
+            // Imprimimos el informe con formato de "ficha"
+            WriteLine("\n" + new string('=', 40));
+            WriteLine($"   INFORME DEL VEHÍCULO #{info.Id}");
+            WriteLine(new string('-', 40));
+            WriteLine($" 🚗 MARCA/MODELO: {info.MarcaModelo}");
+            WriteLine($" 🎫 MATRÍCULA:    {info.Matricula}");
+            WriteLine($" ⚙️  MOTORIZACIÓN: {info.DatosMotor}");
+            WriteLine($" 🪪 PROPIETARIO:  {info.PropietarioDni}");
+            WriteLine(new string('=', 40));
+        }
+        catch (VehiculoException.NotFound) {
+            WriteLine($"\n❌ ERROR: No se encontró ningún vehículo con el ID {id}.");
+        }
+    }
+
+    
+    // ===============================================================================
+    // MÉTODOS DE IMPORTACIÓN, EXPORTACIÓN Y BACKUP
+    // ===============================================================================
+
+void ImportarDatos(IVehiculoService service) {
+    WriteLine("\n📥 --- IMPORTAR DATOS DESDE FICHERO ---");
+    // Usamos Configuracion.ItvFile que es el que tienes en tu Service
+    if (!PedirConfimacion(
+            $"¿Desea importar los datos desde el fichero: {Configuracion.ItvFile}?\n⚠️ Esta acción sobrescribirá los datos actuales.")) {
+        WriteLine("👋 Operación cancelada.");
+        return;
+    }
+    
+    try {
+        var importados = service.ImportarDatos();
+        WriteLine($"✅ ¡Éxito! Se han importado {importados} vehículos.");
+    }
+    catch (Exception ex) {
+        WriteLine($"☠️ ERROR AL IMPORTAR: {ex.Message}");
+    }
+}
+
+void ExportarDatos(IVehiculoService service) {
+    WriteLine("\n📤 --- EXPORTAR DATOS A FICHERO ---");
+    try {
+        var exportados = service.ExportarDatos();
+        WriteLine($"✅ ¡Éxito! Se han exportado {exportados} vehículos a {Configuracion.ItvFile}.");
+    }
+    catch (Exception ex) {
+        WriteLine($"☠️ ERROR AL EXPORTAR: {ex.Message}");
+    }
+}
+
+void RealizarBackup(IVehiculoService service) {
+    WriteLine("\n💾 --- CREAR COPIA DE SEGURIDAD (BACKUP) ---");
+    if (!PedirConfimacion("¿Desea crear una copia de seguridad de la base de datos actual?")) {
+        WriteLine("👋 Operación cancelada.");
+        return;
+    }
+
+    try {
+        var ruta = service.RealizarBackup();
+        WriteLine("✅ Backup creado correctamente.");
+        WriteLine($"📁 Archivo guardado en: {ruta}");
+    }
+    catch (Exception ex) {
+        WriteLine($"☠️ ERROR AL CREAR BACKUP: {ex.Message}");
+    }
+}
+
+void RestaurarBackup(IVehiculoService service) {
+    WriteLine("\n♻️ --- RESTAURAR COPIA DE SEGURIDAD ---");
+
+    // Listamos los archivos disponibles a través del service
+    var backups = service.ListarBackups().ToList();
+    
+    if (backups.Count == 0) {
+        WriteLine("❌ No se han encontrado copias de seguridad en la carpeta de Backup.");
+        return;
+    }
+
+    WriteLine("\n📋 COPIAS DE SEGURIDAD DISPONIBLES:");
+    WriteLine("   0. ⬅️ VOLVER");
+    
+    for (var i = 0; i < backups.Count; i++) {
+        var file = new FileInfo(backups[i]);
+        // Cálculo de tamaño amigable
+        var size = file.Length < 1024 
+            ? $"{file.Length} B" 
+            : $"{Math.Round(file.Length / 1024.0, 1)} KB";
+            
+        WriteLine($"   {i + 1}. 📄 {file.Name} ({size}) - Creado: {file.CreationTime:g}");
+    }
+
+    var seleccion = LeerCadenaValida("\n🎯 Seleccione el número de archivo (0 para cancelar): ", @"^\d+$", "Por favor, introduzca un número válido.");
+    var indice = int.Parse(seleccion) - 1;
+
+    if (indice == -1) {
+        WriteLine("👋 Operación cancelada.");
+        return;
+    }
+
+    if (indice < 0 || indice >= backups.Count) {
+        WriteLine("❌ Selección fuera de rango.");
+        return;
+    }
+
+    var archivoSeleccionado = backups[indice];
+    WriteLine($"\n🔎 Has seleccionado: {Path.GetFileName(archivoSeleccionado)}");
+
+    if (!PedirConfimacion("⚠️ ADVERTENCIA: Esta acción borrará todos los vehículos actuales para restaurar la copia. ¿Continuar?")) {
+        WriteLine("👋 Operación cancelada.");
+        return;
+    }
+
+    try {
+        var restaurados = service.RestaurarBackup(archivoSeleccionado);
+        WriteLine($"✅ Restauración completada con éxito. {restaurados} vehículos cargados.");
+    }
+    catch (Exception ex) {
+        WriteLine($"☠️ ERROR CRÍTICO AL RESTAURAR: {ex.Message}");
+    }
+}
+    
+    
+    // ===============================================================================
+    // FUNCIONES DE LECTURA Y VALIDACIÓN
+    // ===============================================================================
+
+    string LeerCadenaValida(string mensaje, string regex = @".+", string errorMsg = "Entrada no válida.") {
+        while (true) {
+            Write(mensaje);
+            var entrada = ReadLine()?.Trim() ?? "";
+            if (System.Text.RegularExpressions.Regex.IsMatch(entrada, regex)) {
+                return entrada;
+            }
+
+            WriteLine($"❌ {errorMsg}");
+        }
+
+    }
+
+
+    string LeerDniValidado() {
+        // 8 números y una letra (mayúscula o minúscula)
+        const string patronDni = @"^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke]$";
+        return LeerCadenaValida("🆔 Introduzca DNI del propietario: ", patronDni,
+            "Formato incorrecto (8 números + 1 letra).");
+    }
+
+    string LeerMatriculaValida() {
+        // Formato 1234ABC o 1234-ABC
+        const string patronMatricula = @"^[0-9]{4}[ -]?[B-DF-HJ-NP-TV-Z]{3}$";
+        return LeerCadenaValida("🚗 Introduzca Matrícula (1234ABC): ", patronMatricula, "Formato inválido (NNNNLLL).")
+            .ToUpper();
+    }
+
+    double LeerCilindradaValida() {
+        while (true) {
+            var entrada = LeerCadenaValida("🔌 Introduzca Cilindrada (0.0 - 3.0): ", @"^[0-3](\.[0-9])?$",
+                "Debe ser un número entre 0.0 y 3.0.");
+            if (double.TryParse(entrada, System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.InvariantCulture, out double valor)) {
+                return valor;
+            }
+        }
+    }
+
+    Motor LeerMotor() {
+        WriteLine("\n⚙️ Seleccione tipo de motor:");
+        var opciones = System.Enum.GetValues<Motor>();
+        for (int i = 0; i < opciones.Length; i++) {
+            WriteLine($"{i}. {opciones[i]}");
+        }
+        var res = LeerCadenaValida("👉 Selección: ", $"^[0-{opciones.Length - 1}]$", "Opción de motor no válida.");
+        return (Motor)int.Parse(res);
+
+    }
+
+    bool PedirConfimacion(string mensaje) {
+        Write($"\n❓ {mensaje} (s/n): ");
+        var respuesta = ReadKey().KeyChar.ToString().ToLower();
+        WriteLine(); // Salto de línea estético
+        return respuesta == "s";
+    }
+
+// ===============================================================================
+// FUNCIONES DE SALIDA (TABLAS)
+// ===============================================================================
+
+    void ImprimirTablaVehículos(object datos) {
+        WriteLine(new string('=', 100));
+        WriteLine(
+            $"{"ID",-4} | {"Matrícula",-10} | {"Marca",-12} | {"Modelo",-12} | {"Motor",-10} | {"DNI Propietario",-12}");
+        WriteLine(new string('-', 100));
+
+        if (datos is IEnumerable<Vehiculo> lista) {
+            foreach (var v in lista) MostrarFila(v);
+        }
+        else if (datos is Vehiculo v) {
+            MostrarFila(v);
+        }
+
+        WriteLine(new string('=', 100));
+
+    }
+
+    void MostrarFila(Vehiculo v) {
+        WriteLine(
+            $"{v.Id,-4} | {v.Matricula,-10} | {v.Marca,-12} | {v.Modelo,-12} | {v.Motor,-10} | {v.DniPropietario,-12}");
+    }
+
+    void ImprimirErroresValidacion(IEnumerable<string> errores) {
+        WriteLine("\n⚠️ Se han encontrado errores de validación:");
+        foreach (var error in errores) {
+            WriteLine($"   - {error}");
+        }
+    }
+
+
+
+
 }

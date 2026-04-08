@@ -56,7 +56,9 @@ public interface IVehiculoService {
     Vehiculo Delete(int id);
     
     
-    InformeVehiculo GenerateInformeVehiculo();
+    IEnumerable<InformeVehiculo> GenerarTodosInformeVehiculo();
+
+    InformeVehiculo GenerarInformeVehiculPorId(int id);
 
     int ImportarDatos();
     

@@ -102,9 +102,12 @@ public class VehiculosService(
         return eliminado;
     }
 
-    public InformeVehiculo GenerateInformeVehiculo() {
-        throw new NotImplementedException();
-    }
+    public IEnumerable<InformeVehiculo> GenerarTodosInformeVehiculo() =>
+        repository.GetAll().Where(v => !v.IsDeleted).Select(ToInformeVehiculo);
+
+    public InformeVehiculo GenerarInformeVehiculPorId(int id) =>
+        ToInformeVehiculo(repository.GetById(id) ?? throw new Exception());
+    
 
     public int ImportarDatos() {
        _logger.Information("Importando datos desde almacenamiento externo");
@@ -171,4 +174,15 @@ public class VehiculosService(
     public IEnumerable<string> ListarBackups() {
         return _backupService.ListarBackups();
     }
+    
+    // Metodo privado para las funciones de 'InformeVehiculo'
+    private InformeVehiculo ToInformeVehiculo(Vehiculo v) {
+        return new InformeVehiculo {
+            Id = v.Id,
+            Matricula = v.Matricula,
+            MarcaModelo = $"{v.Marca} {v.Modelo}",
+            DatosMotor = $"{v.Cilindrada}L {v.Motor}",
+            PropietarioDni = v.DniPropietario
+        };
+    } 
 }
