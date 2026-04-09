@@ -20,7 +20,7 @@ public static class Configuracion {
         // Esto permite cambiar el tipo de almacenamiento o la ruta sin recompliar el código.
         Config = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .Build();
     }
     

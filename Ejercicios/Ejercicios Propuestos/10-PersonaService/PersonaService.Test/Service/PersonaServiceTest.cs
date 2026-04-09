@@ -23,27 +23,47 @@ public class PersonaServiceTest {
         _valPersonaMock = new Mock<IValidador<Persona>>();
         _cacheMock = new Mock<ICache<int, Persona>>();
     }
+    
+    [Test]
+    
 
     [Test]
-    public void GetById_Usuario_RetornoUsuario() {
+    public void GetById_ConCache_DeberiaRetornarDeCache() {
         // Arrange: Configuración específica de ESTE Test
-        _mockRepository.Setup(r => r.GetById(1))
-            .Returns(new Persona { Id = 1, Nombre = "Diego" });
+        var persona = new Persona { Id = 1, Nombre = "Diego" };
+        _cacheMock.Setup(r => r.Get(1)).Returns((Persona?) null);
+        _mockRepository.Setup(r => r.GetById(1)).Returns(persona);
             
         // Act
         var resultado = _service.GetById(1);
             
         // Assert
-        resultado.Nombre.Should().Be("Juan");
-            
+        resultado.Should().NotBeNull();
+        resultado.Nombre.Should().Be("Diego");
+        _cacheMock.Verify(c => c.Get(1), Times.Once);
+        _cacheMock.Verify(c => c.Add(1, persona), Times.Once);
+        _mockRepository.Verify(r => r.GetById(1), Times.Once);
+
     }
 
     [Test]
-    public void GetById_UsuarioNoExiste_RetornaNull() {
-        // Arrange: OTRA configuracion para este test
-        _mockRepository.Setup()
-    }
+    public void GetById_SinCache_DeberiaBuscarEnRepositorioYAgregarACache() {
+        // Arrange
+        var persona = new Persona { Id = 1, Nombre = "Diego" };
+        _cacheMock.Setup(r => r.Get(1)).Returns((Persona?) null);
+        _mockRepository.Setup(r => r.GetById(1)).Returns(persona);
         
+        
+        // Act 
+        var resultado = _service.GetById(1);
+        
+        // Assert 
+        resultado.Should().NotBeNull();
+        resultado.Nombre.Should().Be("Diego");
+        _cacheMock.Verify(c => c.Get(1), Times.Once);
+        _cacheMock.Verify(c => c.Add(1, persona), Times.Once);
+        _mockRepository.Verify(r => r.GetById(1), Times.Once);
+    }
         
         
 }

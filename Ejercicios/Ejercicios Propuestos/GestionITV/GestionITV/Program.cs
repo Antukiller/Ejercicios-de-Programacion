@@ -39,6 +39,7 @@ void Main() {
     var storage = StorageFactory.GetDefaultStorage(Configuracion.StorageType);
     var backupStorage = StorageFactory.GetDefaultStorage(Configuracion.BackupFormat);
     var repository = RepositoryFactory.GetDefaultRepository(Configuracion.RepositoryType);
+    WriteLine($"Usando respositorio: {repository}");
     IBackupService backupService = new BackupService(backupStorage);
 
 

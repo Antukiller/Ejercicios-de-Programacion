@@ -32,7 +32,7 @@ public class VehiculosService(
 
     public IEnumerable<Vehiculo> GetAllOrderBy(TipoOrdenamiento orden = TipoOrdenamiento.DniPropietario, Predicate<Vehiculo>? filtro = null) {
         _logger.Information("Obteniendo todos vehículos ordenados por {orden} con filtro: {filtro}.", orden, filtro != null ? "si" : "no");
-        
+
         var lista = filtro == null
             ? repository.GetAll()
             : repository.GetAll().Where(p => filtro(p));

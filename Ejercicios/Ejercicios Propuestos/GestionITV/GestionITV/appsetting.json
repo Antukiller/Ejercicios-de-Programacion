@@ -3,7 +3,7 @@
     "Type": "Bin"
   },
   "Repository": {
-    "Type": "Memory",
+    "Type": "Json",
     "Directory": "data"
   },
   
