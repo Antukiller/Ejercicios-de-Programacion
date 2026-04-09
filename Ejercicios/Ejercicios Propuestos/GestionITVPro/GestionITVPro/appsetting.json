@@ -1,0 +1,15 @@
+{
+  "Storage": {
+    "Type": "Bin"
+  },
+  "Repository": {
+    "Type": "Json",
+    "Directory": "data"
+  },
+
+  "Backup": {
+    "Directory": "back",
+    "Format": "Json"
+  }
+
+}
